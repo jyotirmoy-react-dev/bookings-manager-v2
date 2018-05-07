@@ -1,0 +1,75 @@
+<mat-card>
+  <mat-card-title><app-back-button-component></app-back-button-component> Incomplete Applications</mat-card-title>
+  <mat-card-content>
+    <div class="alert alert-secondary" role="alert">
+      <strong>Important Notice!</strong> Failure to provide complete information may cause significant delays to obtaining approval.
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <h4>Required Documents</h4>
+        <p>Before completing the online application form you will need to have to the following documents available to upload:</p>
+        <ul>
+          <li>Itemised schematic drawings detailing all parts in contact with water</li>
+          <li>Where applicable, approval details for the non-metallic items in contact with potable water</li>
+          <li>Photographs of the identification markings present on the product(s)</li>
+          <li>Copies of all relevant supporting documentation such as installation manuals, data sheets, sales literature or other
+            product documentation
+          </li>
+        </ul>      
+      </div>
+      <div class="col-10">
+        <mat-card>
+          <mat-card-title>
+            <button mat-raised-button mat-icon-button color="warn" [matMenuTriggerFor]="menu" style="margin-right: 5px;">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="startNew()">Start New <mat-icon>edit</mat-icon></button>
+              <button mat-menu-item>Log Out <mat-icon>lightbulb_outline</mat-icon></button> 
+            </mat-menu>
+            <u>Current Incomplete Applications</u>
+          
+
+        </mat-card-title>
+          <mat-card *ngIf="fetchFiles==true">
+            <mat-grid-list cols="3">
+              <mat-grid-tile></mat-grid-tile>
+              <mat-grid-tile>
+                <mat-spinner></mat-spinner>
+              </mat-grid-tile>
+              <mat-grid-tile></mat-grid-tile>
+            </mat-grid-list>
+          </mat-card>
+          <mat-grid-list cols="4" rowHeight="2:1">
+            <mat-grid-tile *ngFor="let file of files">
+              <div>
+                Product Range: {{file.DESCRIPTION}}
+                <br/> Directory Section: {{file.SECTION}}
+                <br/> Last Page: {{file.PAGE}}
+                <br/> Application last edited: {{file.LAST_CHANGED}}
+                <br/>
+                <form [action]="'page'+file.PAGE+'.php'" method="post" style="display: inline;">
+                  <input type="hidden" name="unique_app_id" [value]="file.UNIQUE_APP_ID" />
+                  <button mat-raised-button>Continue Application!</button>
+                </form>
+                <form action="main.php" method="post" style="display: inline;">
+                  <input type="hidden" name="cancel" [value]="file.UNIQUE_APP_ID" />
+                  <button mat-raised-button (click)="deleteApplication(file)">Delete Application!</button>
+                </form>
+              </div>
+            </mat-grid-tile>
+        
+          </mat-grid-list>
+            <mat-card-footer>
+              <p>Resume incomplete application or start a new one</p>
+            </mat-card-footer>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card-content>
+
+</mat-card>
+
+
+
+

@@ -1,0 +1,53 @@
+<mat-card *ngIf="loadingData == false">
+  <mat-card-title><app-back-button-component></app-back-button-component>Start New Application</mat-card-title>
+    <mat-divider></mat-divider>
+  <mat-card-content>
+    <mat-grid-list cols="2" rowHeight="190px">
+      <mat-grid-tile>
+        <mat-card>
+          Start Blank Application<br/>
+          <button mat-raised-button color="warn" (click)="startNewAppPage1()">Click to Start New </button>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>
+                   Start an application based on:
+                  <br/>
+                  <form [formGroup]="newappForm" novalidate>
+                    <mat-form-field>
+                    <mat-select placeholder="Select Sample Number" formControlName="sample_number" >
+                      <mat-option *ngFor="let sample of Samples" [value]="sample.value"  >
+                        {{ sample.viewValue }}
+                      </mat-option>
+                    </mat-select>
+                    <font color="red" *ngIf="newappForm.controls['sample_number'].errors && newappForm.controls['sample_number'].touched">Required Sample Number</font>
+                  </mat-form-field>
+                  <br/>
+                  <button mat-raised-button color="warn" (click)="getAppDetails()">Select Application</button>
+                  </form>
+        </mat-card>
+      </mat-grid-tile>
+      
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
+<mat-divider></mat-divider>
+<mat-card *ngIf="loadingData==true">
+<mat-grid-list cols="3" >
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+<mat-spinner></mat-spinner>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+</mat-card>
+<mat-card *ngIf="hasData==true && loadingData==false">
+  <mat-card-title>Previous App Details for :</mat-card-title>
+  <mat-card-content>
+    <mat-card >
+
+        <app-dynamic-form-container [config]="checkBoxConfig" (submitForm)="FormSubmit($event)"></app-dynamic-form-container>
+
+    </mat-card>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,63 @@
+  <app-back-button-component></app-back-button-component><h4>Submit New Enquiry</h4>
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="ENo Info">
+        <mat-header-cell *matHeaderCellDef>ENo Info. </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <app-exs-eno [eno]="element.eno" [estimate_value]="element.estimate_value" [section]="element.section"></app-exs-eno> 
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="AM">
+        <mat-header-cell *matHeaderCellDef> AM </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <app-exs-am [providedby]="element.providedby"></app-exs-am> 
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Company">
+        <mat-header-cell *matHeaderCellDef> Company </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <app-company-component [company]="element.company" [contact]="element.contact_name" [contact_email]="element.contact_email"></app-company-component> </mat-cell>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="Docs">
+        <mat-header-cell *matHeaderCellDef> Docs </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+           <app-docs-component [document]="element.document" [quote_description]="element.quote_description" ></app-docs-component> </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Customer Info">
+        <mat-header-cell *matHeaderCellDef> Customer Info </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+           <app-cust-info-component [applied]="element.applied" [succesful]="element.succesful" [reason]="element.reason" [viewed]="element.viewed"></app-cust-info-component>
+           </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Dates">
+        <mat-header-cell *matHeaderCellDef> Dates </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <app-provided-date-component [time]="element.time"></app-provided-date-component>
+         </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Edit">
+        <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <app-action-component [eno]="element.eno" [contract]="element.contract" [passcode]="element.passcode"></app-action-component>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+    </mat-paginator>
+  </div>
+

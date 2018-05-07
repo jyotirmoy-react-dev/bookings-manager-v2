@@ -1,0 +1,175 @@
+<mat-card>
+  <mat-card-title style="font-size:19px">Contact Names &amp; Addresses</mat-card-title>
+  <mat-card-content>
+    
+  <mat-divider></mat-divider>
+  <br/>
+    <form [formGroup]="page2Form" (ngSubmit)="submitPage2(page2Form)">
+      <div class="row">
+        <div class="col-6">
+          <mat-card>
+            <mat-card-title style="font-size:19px">
+              Applicant (company name on the approval)
+            </mat-card-title>
+            <mat-card-content>
+              <label>Campany Name*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="company" placeholder="Company Name" value="">
+              </mat-form-field>
+              <br/>
+              <label>Campany Address*</label>
+              <mat-form-field class="example-full-width">
+                <textarea matInput formControlName="contact" placeholder="Company Address"></textarea>
+              </mat-form-field>
+              <br/>
+              <label>Campany Telephone</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="company_telephone" placeholder="Company Telephone" value="">
+              </mat-form-field>
+              <br/>
+              <label>Campany Fax*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="fax" placeholder="Company Fax" value="">
+              </mat-form-field>
+              <br/>
+              <label>Campany Website*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="website" placeholder="Company Website" value="">
+              </mat-form-field>
+              <br/>
+              <label>Campany Email*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="company_email" placeholder="Company Email" value="">
+              </mat-form-field>
+              <br/>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-6">
+          <mat-card>
+            <mat-card-title style="font-size:19px">
+              Contact (person responsible for the application)
+            </mat-card-title>
+            <mat-card-content>
+              <label>Contact Name*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="applicant_address" placeholder="Contact Name" value="">
+              </mat-form-field>
+              <br/>
+              <label>Contact Address*</label>
+              <mat-form-field class="example-full-width">
+                <textarea matInput formControlName="contact_address" placeholder="Contact Address"></textarea>
+              </mat-form-field>
+              <br/>
+              <label>Contact Telephone*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="contact_telephone" placeholder="Contact Telephone" value="">
+              </mat-form-field>
+              <br/>
+              <label>Contact Mobile</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="contact_mobile" placeholder="Coontact Mobile" value="">
+              </mat-form-field>
+              <br/>
+              <label>Contact Email</label>
+              {{userinfo.email}}
+              <label>Cantact Fax</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="contact_fax" placeholder="Contact Fax" value="">
+              </mat-form-field>
+              <br/>
+              <label>Additional Contact Email</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="extra_contact_email" placeholder="Additional Contact Email" value="">
+              </mat-form-field>
+              <br/>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <br/> Are the fittings assembled at the Applicant address listed above? If not, list the assembly sites below. N.B. We only require
+      details of the final assembly locations.
+      <hr/> If more than one assembly location is listed, ISO 9001 certificates for all locations must be provided. Additional test
+      samples may be required
+      <div class="row">
+        <div class="col-6">
+          <mat-card>
+            <mat-card-content>
+              <label>Organization Name*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="manufacturer" placeholder="Organization Name" value="">
+              </mat-form-field>
+              <br/>
+              <label>Organization Address*</label>
+              <mat-form-field class="example-full-width">
+                <textarea matInput formControlName="manufacturer_address" placeholder="Organization Address"></textarea>
+              </mat-form-field>
+              <br/>
+              <label>Organization Name*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="manufacturer2" placeholder="Organization Name" value="">
+              </mat-form-field>
+              <br/>
+              <label>Organization Address*</label>
+              <mat-form-field class="example-full-width">
+                <textarea matInput formControlName="manufacturer_address2" placeholder="Organization Address"></textarea>
+              </mat-form-field>
+              <br/>
+              <label>Organization Name*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="manufacturer3" placeholder="Organization Name" value="">
+              </mat-form-field>
+              <br/>
+              <label>Organization Address*</label>
+              <mat-form-field class="example-full-width">
+                <textarea matInput formControlName="manufacturer_address3" placeholder="Organization Address"></textarea>
+              </mat-form-field>
+              <br/>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="col-6">
+          <mat-card>
+            <mat-card-content>
+              <label>Organization Name*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="manufacturer4" placeholder="Organization Name" value="">
+              </mat-form-field>
+              <br/>
+              <label>Organization Address*</label>
+              <mat-form-field class="example-full-width">
+                <textarea matInput formControlName="manufacturer_address4" placeholder="Organization Address"></textarea>
+              </mat-form-field>
+              <br/>
+              <label>Organization Name*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="manufacturer5" placeholder="Organization Name" value="">
+              </mat-form-field>
+              <br/>
+              <label>Organization Address*</label>
+              <mat-form-field class="example-full-width">
+                <textarea matInput formControlName="manufacturer_address5" placeholder="Organization Address"></textarea>
+              </mat-form-field>
+              <br/>
+              <label>Organization Name*</label>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="manufacturer6" placeholder="Organization Name" value="">
+              </mat-form-field>
+              <br/>
+              <label>Organization Address*</label>
+              <mat-form-field class="example-full-width">
+                <textarea matInput formControlName="manufacturer_address6" placeholder="Organization Address"></textarea>
+              </mat-form-field>
+              <br/>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <mat-card>
+        <button mat-raised-button>Next</button>
+      </mat-card>
+    </form>
+    
+  </mat-card-content>
+  
+</mat-card>
