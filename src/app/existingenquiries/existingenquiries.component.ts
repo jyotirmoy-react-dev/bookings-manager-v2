@@ -8,8 +8,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 })
 
 export class ExistingenquiriesComponent implements OnInit {
-  ELEMENT_DATA:Array<any> = [];
-  displayedColumns = ['ENo Info', 'AM', 'Company', 'Docs', 'Customer Info', 'Dates', 'Edit'];
+  displayedColumns = ['Id', 'Hotel Name', 'Hotel Contact', 'Hotel Address', 'Hotel Phone', 'Hotel Email'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(private fetchData: ExistingenquiryserviceService) { }
@@ -21,7 +20,7 @@ export class ExistingenquiriesComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
   }
   getExistingEnquiries(){
-    this.fetchData.getDataForNewApps().subscribe(res=>{
+    this.fetchData.getHotels().subscribe(res=>{
       this.dataSource.data = res;
     },
   error=>{

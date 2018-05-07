@@ -33,12 +33,8 @@ import { SubmitwrasapprovalComponent } from './submitwrasapproval/submitwrasappr
 import { ExistingenquiriesComponent } from './existingenquiries/existingenquiries.component';
 import { ExistingenquiryserviceService } from './existingenquiries/existingenquiryservice.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { EnoComponent } from './existingenquiries/eno.component';
+
 import { AmComponent } from './existingenquiries/am.component';
-import { CompanyComponentComponent } from './existingenquiries/company-component/company-component.component';
-import { DocsComponentComponent } from './existingenquiries/docs-component/docs-component.component';
-import { CustInfoComponentComponent } from './existingenquiries/cust-info-component/cust-info-component.component';
-import { ProvidedDateComponentComponent } from './existingenquiries/provided-date-component/provided-date-component.component';
 import { ActionComponentComponent } from './existingenquiries/action-component/action-component.component';
 import { OnlineApplicationsComponent } from './online-applications/online-applications.component';
 import { SampleComponentComponent } from './online-applications/sample-component/sample-component.component';
@@ -68,6 +64,7 @@ import { FilterResultPipe } from './new-online-application/filter-result.pipe';
 import { OnlineappService } from './new-online-application/onlineapplication/onlineapp.service';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { Page2Service } from './new-online-application/page2/page2.service';
+import { ManagehotelComponent } from './managehotel/managehotel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,12 +79,7 @@ import { Page2Service } from './new-online-application/page2/page2.service';
     ExistingAppsComponent,
     SubmitwrasapprovalComponent,
     ExistingenquiriesComponent,
-    EnoComponent,
     AmComponent,
-    CompanyComponentComponent,
-    DocsComponentComponent,
-    CustInfoComponentComponent,
-    ProvidedDateComponentComponent,
     ActionComponentComponent,
     OnlineApplicationsComponent,
     SampleComponentComponent,
@@ -105,7 +97,8 @@ import { Page2Service } from './new-online-application/page2/page2.service';
     OnlineapplicationComponent,
     Page2Component,
     LoaderComponent,
-    FilterResultPipe    
+    FilterResultPipe,
+    ManagehotelComponent
   ],
   imports: [
     BrowserModule,

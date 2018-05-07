@@ -1,0 +1,50 @@
+<mat-card>
+  <mat-card-content>
+    <app-back-button-component></app-back-button-component>
+    <h2>Manage Hotel</h2>
+    <hr/>
+    <form [formGroup]="page1Form" (ngSubmit)="savePage1()" novalidate>
+      <mat-card>       
+       
+            <mat-form-field class="example-full-width">
+              <input matInput name="previous_approval" placeholder="Hotel Name" value="">
+            </mat-form-field>       
+       
+      </mat-card>
+      <mat-card>       
+        
+        <mat-form-field class="example-full-width">
+          <input matInput name="previous_approval" placeholder="Hotel Contact" value="">
+        </mat-form-field>       
+       
+      </mat-card>
+      <mat-card>        
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Hotel Address"></textarea>
+        </mat-form-field>        
+       
+      </mat-card>
+      <mat-card>        
+        <mat-form-field class="example-full-width">
+          <input matInput name="previous_approval" placeholder="Hotel Location" value="">
+        </mat-form-field>       
+      
+      </mat-card>
+      <mat-card>        
+        <mat-form-field class="example-full-width">
+          <input matInput name="previous_approval" placeholder="Hotel Phone" value="">
+        </mat-form-field>
+        
+      </mat-card>
+      <mat-card>        
+        <mat-form-field class="example-full-width">
+          <input matInput name="previous_approval" placeholder="Hotel Email" value="">
+        </mat-form-field>   
+      
+      </mat-card>
+      <mat-card>
+        <button mat-raised-button>Save</button>
+      </mat-card>
+    </form>
+  </mat-card-content>
+</mat-card>

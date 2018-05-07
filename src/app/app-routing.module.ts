@@ -12,11 +12,12 @@ import { Page1ComponentComponent } from './new-online-application/page1-componen
 import { OnlineapplicationComponent } from './new-online-application/onlineapplication/onlineapplication.component';
 import { Page2Component } from './new-online-application/page2/page2.component';
 import { AuthguardService } from './authguard.service';
+import { ManagehotelComponent } from './managehotel/managehotel.component';
 const routes: Routes = [
   { path: '', component: CustomerhomeComponent },
   { path: 'appmain', component: AppmainComponent },
   { path: 'managemyfiles', component: ManagemyfilesComponent },
-  { path: 'pamsnewsdetails/:id', component: PamsnewsComponent},
+  { path: 'managehotel/:id', component: ManagehotelComponent},
   { path: 'hotels', component: ExistingenquiriesComponent},
   { path: 'applications/:type', component: OnlineApplicationsComponent},
   { path: 'newonlineapplication/:pagetype', component: NewOnlineApplicationComponent},
