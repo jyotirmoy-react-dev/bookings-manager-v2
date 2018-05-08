@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-content>
+  <form [formGroup]="catForm" (ngSubmit)="saveCategoryToHotel(catForm)" >
+    <mat-form-field>
+    <mat-select placeholder="Select Category" formControlName="selcategory" >
+      <mat-option *ngFor="let category of categories" [value]="category.CName">
+        {{ category.CName }} 
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br/><br/>
+  <button mat-raised-button>Save</button>
+  </form>
+  <hr/>
+  <label>Categories:</label><br/>
+  <mat-list role="list">
+<mat-list-item role="listitem" *ngFor="let hcat of Hcategories">{{hcat.CCode}}
+<button mat-icon-button (click)="deleteCategory(hcat)">
+      <mat-icon>clear</mat-icon>
+</button>
+</mat-list-item>
+
+</mat-list>
+  </mat-card-content>
+</mat-card>

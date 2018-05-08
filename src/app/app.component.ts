@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HomepageserviceService } from './homepageservice.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'app';
-  constructor(private routes: Router) {
+  load=false;
+  constructor(private routes: Router, private loader: HomepageserviceService) {
   }
   handleNavigation(type){
     switch (type) {
@@ -27,5 +29,10 @@ export class AppComponent {
       default:
         break;
     }
+  }
+  ngOnInit(){
+     this.loader.showLoader.subscribe(res => {
+       this.load = res;
+    })
   }
 }

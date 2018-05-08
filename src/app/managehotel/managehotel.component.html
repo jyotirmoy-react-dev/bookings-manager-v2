@@ -1,50 +1,64 @@
-<mat-card>
+<mat-card style="min-height: 250px;">
   <mat-card-content>
     <app-back-button-component></app-back-button-component>
-    <h2>Manage Hotel</h2>
-    <hr/>
-    <form [formGroup]="page1Form" (ngSubmit)="savePage1()" novalidate>
-      <mat-card>       
-       
+    <mat-tab-group>
+      <mat-tab label="Edit Hotel">
+        <hr/>
+        <form [formGroup]="hotelForm" (ngSubmit)="saveHotel(hotelForm)" novalidate>
+          <mat-card>
+
             <mat-form-field class="example-full-width">
-              <input matInput name="previous_approval" placeholder="Hotel Name" value="">
-            </mat-form-field>       
-       
-      </mat-card>
-      <mat-card>       
-        
-        <mat-form-field class="example-full-width">
-          <input matInput name="previous_approval" placeholder="Hotel Contact" value="">
-        </mat-form-field>       
-       
-      </mat-card>
-      <mat-card>        
-        <mat-form-field class="example-full-width">
-          <textarea matInput placeholder="Hotel Address"></textarea>
-        </mat-form-field>        
-       
-      </mat-card>
-      <mat-card>        
-        <mat-form-field class="example-full-width">
-          <input matInput name="previous_approval" placeholder="Hotel Location" value="">
-        </mat-form-field>       
-      
-      </mat-card>
-      <mat-card>        
-        <mat-form-field class="example-full-width">
-          <input matInput name="previous_approval" placeholder="Hotel Phone" value="">
-        </mat-form-field>
-        
-      </mat-card>
-      <mat-card>        
-        <mat-form-field class="example-full-width">
-          <input matInput name="previous_approval" placeholder="Hotel Email" value="">
-        </mat-form-field>   
-      
-      </mat-card>
-      <mat-card>
-        <button mat-raised-button>Save</button>
-      </mat-card>
-    </form>
+              <input matInput name="previous_approval" placeholder="Hotel Name" formControlName="HName">
+            </mat-form-field>
+
+          </mat-card>
+          <mat-card>
+
+            <mat-form-field class="example-full-width">
+              <input matInput name="previous_approval" placeholder="Hotel Contact" formControlName="HContact">
+            </mat-form-field>
+
+          </mat-card>
+          <mat-card>
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Hotel Address" formControlName="HAddress"></textarea>
+            </mat-form-field>
+
+          </mat-card>
+          <mat-card>
+            <mat-form-field class="example-full-width">
+              <input matInput name="previous_approval" placeholder="Hotel Location" formControlName="HLocation">
+            </mat-form-field>
+
+          </mat-card>
+          <mat-card>
+            <mat-form-field class="example-full-width">
+              <input matInput name="previous_approval" placeholder="Hotel Phone" formControlName="HPhone">
+            </mat-form-field>
+
+          </mat-card>
+          <mat-card>
+            <mat-form-field class="example-full-width">
+              <input matInput name="previous_approval" placeholder="Hotel Email" formControlName="HEmail">
+            </mat-form-field>
+
+          </mat-card>
+          <mat-card>
+            <button mat-raised-button>Save</button>
+          </mat-card>
+        </form>
+
+      </mat-tab>
+      <mat-tab label="Add to Category">
+        <app-categories [hid]="id"></app-categories>
+      </mat-tab>
+       <mat-tab label="Add Room Type">
+
+      </mat-tab>
+       <mat-tab label="Add Transportation">
+
+      </mat-tab>
+    </mat-tab-group>    
+    
   </mat-card-content>
 </mat-card>

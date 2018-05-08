@@ -11,9 +11,8 @@ interface Hotels {
 }
 @Injectable()
 export class ExistingenquiryserviceService {
-  token = 'cPRkdYvPvpfqhsUIerl5jwcoMQ5xXq9dvOwzSBzo14qqvCiODVLHsDJTmOvPPFEi';
   constructor(private http: HttpClient) { }
-getHotels() {
-  return this.http.get<Hotels[]>('https://intense-bastion-97088.herokuapp.com/api/hotel_masters?access_token=' + this.token);
+getHotels(token) {
+  return this.http.get<Hotels[]>('https://intense-bastion-97088.herokuapp.com/api/hotel_masters?access_token=' + token);
   }
 }

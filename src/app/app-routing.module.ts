@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {CustomerhomeComponent} from './customerhome/customerhome.component';
 import { AppmainComponent } from './appmain/appmain.component';
-import { ManagemyfilesComponent } from './managemyfiles/managemyfiles.component';
 import { Page404NotFoundComponent } from './page404-not-found/page404-not-found.component';
-import { PamsnewsComponent } from './pamsnews/pamsnews.component';
 import { ExistingenquiriesComponent } from './existingenquiries/existingenquiries.component';
 import { OnlineApplicationsComponent } from './online-applications/online-applications.component';
 import { NewOnlineApplicationComponent } from './new-online-application/new-online-application.component';
@@ -13,13 +11,13 @@ import { OnlineapplicationComponent } from './new-online-application/onlineappli
 import { Page2Component } from './new-online-application/page2/page2.component';
 import { AuthguardService } from './authguard.service';
 import { ManagehotelComponent } from './managehotel/managehotel.component';
+import { AddhotelComponent } from './addhotel/addhotel.component';
 const routes: Routes = [
   { path: '', component: CustomerhomeComponent },
   { path: 'appmain', component: AppmainComponent },
-  { path: 'managemyfiles', component: ManagemyfilesComponent },
   { path: 'managehotel/:id', component: ManagehotelComponent},
   { path: 'hotels', component: ExistingenquiriesComponent},
-  { path: 'applications/:type', component: OnlineApplicationsComponent},
+  { path: 'addhotel', component: AddhotelComponent},
   { path: 'newonlineapplication/:pagetype', component: NewOnlineApplicationComponent},
   {
     path: 'onlineapplication', component: OnlineapplicationComponent, canActivateChild: [AuthguardService], children: [

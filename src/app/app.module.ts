@@ -7,7 +7,6 @@ import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CustomerhomeComponent } from './customerhome/customerhome.component';
 import { NsfnewslistComponent } from './nsfnewslist/nsfnewslist.component';
-import { ManagemyfilesComponent } from './managemyfiles/managemyfiles.component';
 import { FetchfileserviceService } from './fetchfileservice.service';
 import { AppauthsetupService } from './appauthsetup.service';
 import { AppmainComponent } from './appmain/appmain.component';
@@ -18,17 +17,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { PamsnewsComponent } from './pamsnews/pamsnews.component';
+
 import { Page404NotFoundComponent } from './page404-not-found/page404-not-found.component';
-import { NewAppSetupComponent } from './new-app-setup/new-app-setup.component';
-import { SubmitNewAppComponent } from './submit-new-app/submit-new-app.component';
+
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-import { ExistingAppsComponent } from './existing-apps/existing-apps.component';
+
 import { HomepageserviceService } from './homepageservice.service';
 import { MatTableModule } from '@angular/material/table';
-import { NewappsetupServeService } from './new-app-setup/newappsetup-serve.service';
 import { SubmitwrasapprovalComponent } from './submitwrasapproval/submitwrasapproval.component';
 import { ExistingenquiriesComponent } from './existingenquiries/existingenquiries.component';
 import { ExistingenquiryserviceService } from './existingenquiries/existingenquiryservice.service';
@@ -48,7 +45,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ViewnotesComponentComponent,
    ViewnotesDialogComponent } from './online-applications/viewnotes-component/viewnotes-component.component';
 import { MatProgressSpinnerModule, MatSelectModule, MatCheckboxModule, 
-  MatTooltipModule, MatChipsModule, MatSnackBarModule, MatRadioModule, MatInputModule, MatToolbarModule } from '@angular/material';
+  MatTooltipModule, MatChipsModule, MatSnackBarModule, MatRadioModule, MatInputModule,
+   MatToolbarModule, MatSidenavModule, MatTabsModule } from '@angular/material';
 import { NewOnlineApplicationComponent } from './new-online-application/new-online-application.component';
 import { NewappserviceService } from './new-online-application/newappservice.service';
 
@@ -65,18 +63,20 @@ import { OnlineappService } from './new-online-application/onlineapplication/onl
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
 import { Page2Service } from './new-online-application/page2/page2.service';
 import { ManagehotelComponent } from './managehotel/managehotel.component';
+import { AddhotelComponent } from './addhotel/addhotel.component';
+import { AddhotelService } from './addhotel/addhotel.service';
+import { ManagehotelService } from './managehotel/managehotel.service';
+import { CategoriesComponent } from './managehotel/categories/categories.component';
+import { RoomtypesComponent } from './managehotel/roomtypes/roomtypes.component';
+import { TransportationComponent } from './managehotel/transportation/transportation.component';
+import { CategoriesService } from './managehotel/categories/categories.service';
 @NgModule({
   declarations: [
     AppComponent,
     CustomerhomeComponent,
     NsfnewslistComponent,
-    ManagemyfilesComponent,
     AppmainComponent,
-    PamsnewsComponent,
     Page404NotFoundComponent,
-    NewAppSetupComponent,
-    SubmitNewAppComponent,
-    ExistingAppsComponent,
     SubmitwrasapprovalComponent,
     ExistingenquiriesComponent,
     AmComponent,
@@ -98,7 +98,11 @@ import { ManagehotelComponent } from './managehotel/managehotel.component';
     Page2Component,
     LoaderComponent,
     FilterResultPipe,
-    ManagehotelComponent
+    ManagehotelComponent,
+    AddhotelComponent,
+    CategoriesComponent,
+    RoomtypesComponent,
+    TransportationComponent
   ],
   imports: [
     BrowserModule,
@@ -129,15 +133,17 @@ import { ManagehotelComponent } from './managehotel/managehotel.component';
     MatRadioModule,
     MatInputModule,
     DynamicFormModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSidenavModule,
+    MatTabsModule
   ],
   entryComponents: [ViewnotesDialogComponent],
-  providers: [FetchfileserviceService,{
+  providers: [FetchfileserviceService,AddhotelService,ManagehotelService,CategoriesService,{
     provide:HTTP_INTERCEPTORS,
     useClass: AppauthsetupService,
     multi:true
   },
-    HomepageserviceService, NewappsetupServeService, ExistingenquiryserviceService,
+    HomepageserviceService, ExistingenquiryserviceService,
      NewappserviceService, AppmainserviceService, Page1Service, AuthguardService, OnlineappService,Page2Service],
   bootstrap: [AppComponent]
 })

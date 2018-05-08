@@ -8,16 +8,11 @@ import { HomepageserviceService } from '../homepageservice.service';
 export class CustomerhomeComponent implements OnInit {
   appsCount: any = '';
   constructor(private fetchHome: HomepageserviceService) {}
-  getAppsCount() {
-    this.fetchHome.fetchHotelCount().subscribe(res => {
-      this.appsCount = res;
-    },
-      error => {
-        console.error(error);
-      });
-  }
   ngOnInit() {
-    this.getAppsCount();
+    const token = 'lcZHWO7l5YvaXSCDMOpnkZlvGuK3DlcN5Xps42yFLPBVLNqELkYDxRqxz0EFamZM';
+    sessionStorage.clear();
+    sessionStorage.setItem('token',token);
+    this.fetchHome.setToken(token);
   }
  
 }
