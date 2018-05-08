@@ -9,10 +9,20 @@ export class CustomerhomeComponent implements OnInit {
   appsCount: any = '';
   constructor(private fetchHome: HomepageserviceService) {}
   ngOnInit() {
-    const token = 'lcZHWO7l5YvaXSCDMOpnkZlvGuK3DlcN5Xps42yFLPBVLNqELkYDxRqxz0EFamZM';
-    sessionStorage.clear();
-    sessionStorage.setItem('token',token);
-    this.fetchHome.setToken(token);
+    this.userLogin();    
+  }
+
+  userLogin() {
+    const send_data = {
+      "email": "jyotirmoy85@gmail.com",
+      "password": "password123"
+    };
+    this.fetchHome.setUserLogin(send_data).subscribe(res => {
+      const token = res.id;
+      sessionStorage.clear();
+      sessionStorage.setItem('token', token);
+      this.fetchHome.setToken(token);
+    });
   }
  
 }

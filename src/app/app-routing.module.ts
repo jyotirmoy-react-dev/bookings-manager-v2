@@ -12,18 +12,14 @@ import { Page2Component } from './new-online-application/page2/page2.component';
 import { AuthguardService } from './authguard.service';
 import { ManagehotelComponent } from './managehotel/managehotel.component';
 import { AddhotelComponent } from './addhotel/addhotel.component';
+import { HomepageserviceService } from './homepageservice.service';
 const routes: Routes = [
   { path: '', component: CustomerhomeComponent },
   { path: 'appmain', component: AppmainComponent },
-  { path: 'managehotel/:id', component: ManagehotelComponent},
-  { path: 'hotels', component: ExistingenquiriesComponent},
-  { path: 'addhotel', component: AddhotelComponent},
+  { path: 'managehotel/:id', component: ManagehotelComponent, canActivate: [AuthguardService]},
+  { path: 'hotels', component: ExistingenquiriesComponent, canActivate:[AuthguardService]},
+  { path: 'addhotel', component: AddhotelComponent, canActivate: [AuthguardService]},
   { path: 'newonlineapplication/:pagetype', component: NewOnlineApplicationComponent},
-  {
-    path: 'onlineapplication', component: OnlineapplicationComponent, canActivateChild: [AuthguardService], children: [
-    {path: 'page1', component: Page1ComponentComponent},
-    {path: 'page2', component: Page2Component}
-  ]},
   { path: '**' , component: Page404NotFoundComponent }
 ];
 

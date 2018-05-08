@@ -30,6 +30,7 @@ export class AppComponent implements OnInit{
         break;
     }
   }
+  
   ngOnInit(){
      this.loader.showLoader.subscribe(res => {
        this.load = res;
