@@ -24,8 +24,8 @@ export class HomepageserviceService {
 return this.http.post < Logininfo > ('https://intense-bastion-97088.herokuapp.com/api/Users/login', send_data);
   }
   checkToken(): boolean {
-    const token: any = sessionStorage.getItem('token');
-      if (token === '') {
+    
+    if (sessionStorage.getItem('token')) {
         return true;
       }
       else {

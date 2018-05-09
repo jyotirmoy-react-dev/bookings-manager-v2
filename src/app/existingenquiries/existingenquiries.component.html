@@ -1,82 +1,79 @@
-<mat-card><app-back-button-component></app-back-button-component>
-  <button mat-raised-button mat-icon-button color="warn" [matMenuTriggerFor]="menu" style="margin-right: 5px;">
-    <mat-icon>more_vert</mat-icon>
-  </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="startNew()">Add New Hotel
-      <mat-icon>edit</mat-icon>
+<mat-card>
+
+<h4>View Hotels </h4>
+<mat-card-content>
+  <div class="example-container mat-elevation-z8" style="padding:5px;">
+    <button mat-raised-button (click)="startNew()" color="warn">
+      <mat-icon>add</mat-icon> Add New Hotel
     </button>
-  </mat-menu>
-<h4>View Hotels</h4>
-<div class="example-container mat-elevation-z8">
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+    <mat-table #table [dataSource]="dataSource" matSort>
   
-  <div class="example-header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="Hotel Name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <app-exs-am [id]="element.id" [title]="element.HName"></app-exs-am>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Hotel Contact">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Contact </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{element.HContact}}
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="Hotel Address">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Address </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{element.HAddress}}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="Hotel Phone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Phone </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{element.HPhone}}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="Hotel Email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Email </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{element.HEmail}}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="Hotel Location">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Location </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{element.HLocation}}
+        </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="Create Template">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ... </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-icon-button color="warn">
+            <mat-icon>vertical_split</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+    </mat-paginator>
   </div>
-  <mat-table #table [dataSource]="dataSource" matSort>
-
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="Hotel Name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Name </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <app-exs-am [id]="element.id" [title]="element.HName"></app-exs-am>
-      </mat-cell>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="Hotel Contact">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Contact </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        {{element.HContact}}
-      </mat-cell>
-    </ng-container>
-
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="Hotel Address">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Address </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        {{element.HAddress}}
-      </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="Hotel Phone">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Phone </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        {{element.HPhone}}
-      </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="Hotel Email">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Email </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        {{element.HEmail}}
-      </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="Hotel Location">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Location </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        {{element.HLocation}}
-      </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="Create Template">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> ... </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <button mat-icon-button color="warn">
-          <mat-icon >vertical_split</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-
-  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
-  </mat-paginator>
-</div>
+</mat-card-content>
 </mat-card>

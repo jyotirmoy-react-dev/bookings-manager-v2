@@ -37,6 +37,12 @@ this.addHotelForm = new FormGroup({
       }),
       HEmail: new FormControl('',{
         validators: Validators.required
+      }),
+      HCheckin: new FormControl('',{
+        validators: Validators.required
+      }),
+      HCheckout: new FormControl('',{
+        validators: Validators.required
       })
     });
   }
@@ -49,6 +55,8 @@ saveHotel({valid, value}) {
       'HAddress':value.HAddress,
       'HPhone':value.HPhone,
       'HEmail':value.HEmail,
+      'HCheckin': value.HCheckin,
+      'HCheckout': value.HCheckout, 
     };
     this.fetchhome.token.subscribe(token=>{
       this.hotelservice.addNewHotel(send_data,token).subscribe(res=>{
