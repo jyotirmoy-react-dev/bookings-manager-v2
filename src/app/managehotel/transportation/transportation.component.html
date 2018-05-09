@@ -1,3 +1,31 @@
-<p>
-  transportation works!
-</p>
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="transportForm" (ngSubmit)="saveHotelTrasnport(transportForm)">
+      <mat-form-field>
+        <mat-select placeholder="Select Transportation" formControlName="seltransport">
+          <mat-option *ngFor="let transport of transports" [value]="transport.TName">
+            {{ transport.TName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br/>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Transport Price" formControlName="price" value="">
+      </mat-form-field>
+      <br/>
+      <br/>
+      <button mat-raised-button>Save</button>
+    </form>
+    <hr/>
+    <label>Transports:</label>
+    <br/>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let trans of HTransports">{{trans.TCode}}-{{trans.Price}}
+        <button mat-icon-button (click)="deleteTransport(trans)">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -21,4 +21,7 @@ return this.http.get < Hoteldetails > ('https://intense-bastion-97088.herokuapp.
   updateHotel(id,token,send_data){
     return this.http.put('https://intense-bastion-97088.herokuapp.com/api/hotel_masters/' + id + '?access_token=' + token, send_data);
   }
+  deleteHotel(id, token){
+    return this.http.delete('https://intense-bastion-97088.herokuapp.com/api/hotel_masters/' + id + '?access_token=' + token);
+  }
 }

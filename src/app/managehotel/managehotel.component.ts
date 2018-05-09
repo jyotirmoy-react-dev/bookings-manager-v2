@@ -86,4 +86,13 @@ this.setUpForm();
     }
 
   }
+
+  deleteHotel(){
+    this.getdetails.deleteHotel(this.id,this.token).subscribe(res => {
+      this.snackBar.open('Delted!', '', {
+        duration: 2000,
+      });
+      this.router.navigate(['hotels']);
+    })
+  }
 }

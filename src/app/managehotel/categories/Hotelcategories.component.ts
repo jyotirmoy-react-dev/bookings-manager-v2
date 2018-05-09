@@ -4,11 +4,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HomepageserviceService } from '../../homepageservice.service';
 
 @Component({
-  selector: 'app-categories',
-  templateUrl: './categories.component.html',
+  selector: 'app-hotelcategories',
+  templateUrl: './Hotelcategories.component.html',
   styles: []
 })
-export class CategoriesComponent implements OnInit {
+export class HotelCategoriesComponent implements OnInit {
   @Input() hid = '';
   catForm: FormGroup;
   categories: any = [];

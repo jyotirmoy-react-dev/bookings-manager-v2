@@ -47,29 +47,27 @@ import { ViewnotesComponentComponent,
 import { MatProgressSpinnerModule, MatSelectModule, MatCheckboxModule, 
   MatTooltipModule, MatChipsModule, MatSnackBarModule, MatRadioModule, MatInputModule,
    MatToolbarModule, MatSidenavModule, MatTabsModule } from '@angular/material';
-import { NewOnlineApplicationComponent } from './new-online-application/new-online-application.component';
-import { NewappserviceService } from './new-online-application/newappservice.service';
+
 
 import { AppmainserviceService } from './appmain/appmainservice.service';
-import { Page1ComponentComponent } from './new-online-application/page1-component/page1-component.component';
-import { Page1Service } from './new-online-application/page1-component/page1.service';
-import { PageStepperComponent } from './new-online-application/page-stepper/page-stepper.component';
-import { OnlineapplicationComponent } from './new-online-application/onlineapplication/onlineapplication.component';
-import { Page2Component } from './new-online-application/page2/page2.component';
 import { LoaderComponent } from './loader/loader.component';
 import { AuthguardService } from './authguard.service';
-import { FilterResultPipe } from './new-online-application/filter-result.pipe';
-import { OnlineappService } from './new-online-application/onlineapplication/onlineapp.service';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
-import { Page2Service } from './new-online-application/page2/page2.service';
+
 import { ManagehotelComponent } from './managehotel/managehotel.component';
 import { AddhotelComponent } from './addhotel/addhotel.component';
 import { AddhotelService } from './addhotel/addhotel.service';
 import { ManagehotelService } from './managehotel/managehotel.service';
-import { CategoriesComponent } from './managehotel/categories/categories.component';
-import { RoomtypesComponent } from './managehotel/roomtypes/roomtypes.component';
+import { RoomtypesComponent } from './roomtypes/roomtypes.component';
 import { TransportationComponent } from './managehotel/transportation/transportation.component';
 import { CategoriesService } from './managehotel/categories/categories.service';
+import { TransportationService } from './managehotel/transportation/transportation.service';
+import { TransportsComponent } from './transports/transports.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { HotelCategoriesComponent } from './managehotel/categories/Hotelcategories.component';
+import { HotelRoomtypesComponent } from './managehotel/roomtypes/Hotelroomtypes.component';
+import { RoomtypesService } from './managehotel/roomtypes/roomtypes.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,18 +89,14 @@ import { CategoriesService } from './managehotel/categories/categories.service';
     ViewstatComponentComponent,
     ViewnotesComponentComponent,
     ViewnotesDialogComponent,
-    NewOnlineApplicationComponent,
-    Page1ComponentComponent,
-    PageStepperComponent,
-    OnlineapplicationComponent,
-    Page2Component,
-    LoaderComponent,
-    FilterResultPipe,
     ManagehotelComponent,
     AddhotelComponent,
+    TransportationComponent,
+    TransportsComponent,
     CategoriesComponent,
-    RoomtypesComponent,
-    TransportationComponent
+    HotelCategoriesComponent,
+    HotelRoomtypesComponent,
+    RoomtypesComponent
   ],
   imports: [
     BrowserModule,
@@ -137,14 +131,12 @@ import { CategoriesService } from './managehotel/categories/categories.service';
     MatSidenavModule,
     MatTabsModule
   ],
-  entryComponents: [ViewnotesDialogComponent],
-  providers: [FetchfileserviceService,AddhotelService,ManagehotelService,CategoriesService,{
+  providers: [FetchfileserviceService,AddhotelService,ManagehotelService,CategoriesService,TransportationService,RoomtypesService,{
     provide:HTTP_INTERCEPTORS,
     useClass: AppauthsetupService,
     multi:true
   },
-    HomepageserviceService, ExistingenquiryserviceService,
-     NewappserviceService, AppmainserviceService, Page1Service, AuthguardService, OnlineappService,Page2Service],
+    HomepageserviceService, ExistingenquiryserviceService, AppmainserviceService, AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

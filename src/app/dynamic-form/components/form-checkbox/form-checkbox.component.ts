@@ -6,13 +6,7 @@ import { FormGroup } from '@angular/forms';
   template: `
     <div>
     <div [formGroup]="group" class="row" >
-        <div class="col-6">
-          <app-file-info
-            [title]="config.title"
-            [details]="config.description">
-          </app-file-info>
-        </div>
-        <div class="col-6">
+        <div class="col-12">
         <mat-checkbox class="example-margin" color="primary" [formControlName]="config.name"></mat-checkbox>
     </div>
     </div>

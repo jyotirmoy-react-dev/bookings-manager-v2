@@ -8,7 +8,6 @@ import { DynamicFormDirective } from './components/dynamic-form.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormCheckboxComponent } from './components/form-checkbox/form-checkbox.component';
 import { MatCheckboxModule, MatIconModule, MatButtonModule } from '@angular/material';
-import { FileInfoComponent, FileInfoPopupComponent } from '../new-online-application/fileInfoPopup.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,11 +21,9 @@ import { FileInfoComponent, FileInfoPopupComponent } from '../new-online-applica
     FormSelectComponent, 
     FormButtonComponent,
      DynamicFormDirective, 
-     FormCheckboxComponent,
-    FileInfoComponent,
-    FileInfoPopupComponent,],
-  exports: [DynamicFormContainerComponent, FileInfoComponent, FileInfoPopupComponent],
-  entryComponents: [FormButtonComponent, FormCheckboxComponent, FormSelectComponent, FormButtonComponent, FileInfoPopupComponent]
+     FormCheckboxComponent],
+  exports: [DynamicFormContainerComponent],
+  entryComponents: [FormButtonComponent, FormCheckboxComponent, FormSelectComponent, FormButtonComponent]
 
 })
 export class DynamicFormModule { }

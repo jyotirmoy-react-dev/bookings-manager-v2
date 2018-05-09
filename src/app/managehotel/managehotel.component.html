@@ -1,6 +1,7 @@
 <mat-card style="min-height: 250px;">
   <mat-card-content>
     <app-back-button-component></app-back-button-component>
+    <form><button mat-raised-button color="warn" (click)="deleteHotel()"><mat-icon>delete</mat-icon> Delete Hotel</button></form>
     <mat-tab-group>
       <mat-tab label="Edit Hotel">
         <hr/>
@@ -50,13 +51,13 @@
 
       </mat-tab>
       <mat-tab label="Add to Category">
-        <app-categories [hid]="id"></app-categories>
+        <app-hotelcategories [hid]="id"></app-hotelcategories>
       </mat-tab>
        <mat-tab label="Add Room Type">
-
+        <app-hotelroomtypes [hid]="id"></app-hotelroomtypes>
       </mat-tab>
        <mat-tab label="Add Transportation">
-
+        <app-transportation  [hid]="id"></app-transportation>
       </mat-tab>
     </mat-tab-group>    
     

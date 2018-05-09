@@ -1,0 +1,36 @@
+<mat-card>
+  <app-back-button-component></app-back-button-component>
+  <form [formGroup]="roomtypeForm" (ngSubmit)="addRoomtype(roomtypeForm)" novalidate>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Room Type" formControlName="RName">
+    </mat-form-field>
+    <button mat-icon-button color="warn">
+      <mat-icon>add</mat-icon>
+    </button>
+  </form>
+  <h4>Manage Roomtypes</h4>
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="datasource">
+      <!-- Name Column -->
+      <ng-container matColumnDef="Roomtype Name">
+        <mat-header-cell *matHeaderCellDef> Roomtype Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{element.RName}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Delete">
+        <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+        <mat-cell *matCellDef="let element">          
+          <button mat-icon-button color="warn" (click)="deleteRoom(element.id)"><mat-icon >clear</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+    </mat-paginator>
+  </div>
+</mat-card>

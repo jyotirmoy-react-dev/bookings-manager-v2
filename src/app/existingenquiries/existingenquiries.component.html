@@ -9,11 +9,17 @@
   </mat-menu>
 <h4>View Hotels</h4>
 <div class="example-container mat-elevation-z8">
-  <mat-table #table [dataSource]="dataSource">
+  
+  <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+  <mat-table #table [dataSource]="dataSource" matSort>
 
     <!-- Position Column -->
     <ng-container matColumnDef="Id">
-      <mat-header-cell *matHeaderCellDef>Id </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Id </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <app-exs-am [id]="element.id"></app-exs-am>
       </mat-cell>
@@ -21,7 +27,7 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="Hotel Name">
-      <mat-header-cell *matHeaderCellDef> Hotel Name </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Name </mat-header-cell>
       <mat-cell *matCellDef="let element">
         {{element.HName}}
       </mat-cell>
@@ -29,7 +35,7 @@
 
     <!-- Weight Column -->
     <ng-container matColumnDef="Hotel Contact">
-      <mat-header-cell *matHeaderCellDef> Hotel Contact </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Contact </mat-header-cell>
       <mat-cell *matCellDef="let element">
         {{element.HContact}}
       </mat-cell>
@@ -37,27 +43,41 @@
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="Hotel Address">
-      <mat-header-cell *matHeaderCellDef> Hotel Address </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Address </mat-header-cell>
       <mat-cell *matCellDef="let element">
         {{element.HAddress}}
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="Hotel Phone">
-      <mat-header-cell *matHeaderCellDef> Hotel Phone </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Phone </mat-header-cell>
       <mat-cell *matCellDef="let element">
         {{element.HPhone}}
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="Hotel Email">
-      <mat-header-cell *matHeaderCellDef> Hotel Email </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Email </mat-header-cell>
       <mat-cell *matCellDef="let element">
         {{element.HEmail}}
       </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="Hotel Location">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Location </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.HLocation}}
+      </mat-cell>
+    </ng-container>
 
+    <ng-container matColumnDef="Create Template">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ... </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn">
+          <mat-icon >vertical_split</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

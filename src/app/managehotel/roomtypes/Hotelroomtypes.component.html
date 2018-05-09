@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="roomForm" (ngSubmit)="saveRoomtypeToHotel(roomForm)">
+      <mat-form-field>
+        <mat-select placeholder="Select Roomtype" formControlName="selroomtype">
+          <mat-option *ngFor="let room of roomtypes" [value]="room.RName">
+            {{ room.RName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br/>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Room Price" formControlName="price" value="">
+        </mat-form-field>
+      <br/>
+      <br/>
+      <button mat-raised-button>Save</button>
+    </form>
+    <hr/>
+    <label>Roomtypes:</label>
+    <br/>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngFor="let hroom of Hroomtypes">{{hroom.RCode}}-{{hroom.Price}}
+        <button mat-icon-button (click)="deleteRoom(hroom)">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-card-content>
+</mat-card>
