@@ -17,19 +17,12 @@
   </div>
   <mat-table #table [dataSource]="dataSource" matSort>
 
-    <!-- Position Column -->
-    <ng-container matColumnDef="Id">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Id </mat-header-cell>
-      <mat-cell *matCellDef="let element">
-        <app-exs-am [id]="element.id"></app-exs-am>
-      </mat-cell>
-    </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="Hotel Name">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel Name </mat-header-cell>
       <mat-cell *matCellDef="let element">
-        {{element.HName}}
+        <app-exs-am [id]="element.id" [title]="element.HName"></app-exs-am>
       </mat-cell>
     </ng-container>
 
