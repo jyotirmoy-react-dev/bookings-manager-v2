@@ -1,3 +1,102 @@
-<p>
-  hoteltemplate works!
-</p>
+<mat-card>
+  <app-back-button-component></app-back-button-component>
+  <mat-card-title>
+    Final Booking Information
+  </mat-card-title>
+  <mat-card>
+    <mat-spinner *ngIf="dataFetch"></mat-spinner>
+    <div *ngIf="!dataFetch">
+      <p>Dear Customer,
+        <br/>Thank you for contacting us. Please review the folowing information about your bookings.</p>
+      <h5>Hotel Details:</h5>
+      <table class="table table-bordered" style="width:40%;">
+        <tr>
+          <td>
+            <label>Hotel Name</label>
+          </td>
+          <td>{{hotelDetails.HName}}</td>
+        </tr>
+        <tr>
+          <td>
+            <label>Hotel Contact</label>
+          </td>
+          <td>{{hotelDetails.HContact}}</td>
+        </tr>
+        <tr>
+          <td>
+            <label>Hotel Address</label>
+          </td>
+          <td>{{hotelDetails.HAddress}}</td>
+        </tr>
+        <tr>
+          <td>
+            <label>Hotel Location</label>
+          </td>
+          <td>{{hotelDetails.HLocation}}</td>
+        </tr>
+        <tr>
+          <td>
+            <label>Hotel Phone</label>
+          </td>
+          <td>{{hotelDetails.HPhone}}</td>
+        </tr>
+        <tr>
+          <td>
+            <label>Hotel Email</label>
+          </td>
+          <td>{{hotelDetails.HEmail}}</td>
+        </tr>
+        <tr>
+          <td>
+            <label>Hotel Checkin</label>
+          </td>
+          <td>{{hotelDetails.HCheckin}}</td>
+        </tr>
+        <tr>
+          <td>
+            <label>Hotel Checkout</label>
+          </td>
+          <td>{{hotelDetails.HCheckout}}</td>
+        </tr>
+      </table>
+      <h5>Room Information</h5>
+      <table class="table table-bordered" style="width:40%;">
+        <thead>
+          <tr>
+            <th>Roomtype</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let room of Roomtypes">
+            <td>{{room.RCode}}</td>
+            <td>{{room.Price}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h5>Transportation Information</h5>
+      <table class="table table-bordered" style="width:40%;">
+        <thead>
+          <tr>
+            <th>Transport type</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trans of transportations">
+            <td>{{trans.TCode}}</td>
+            <td>{{trans.Price}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        Note:- In case of NGT Permission or any other reason Rohtang Pass is closed we will visit only Solang Valley Sightseeing.
+        Total Tour Package cost :- Hotel In Use :- Deluxe Hotel Manali:- Sweet Home / mountain view / Ashoka inn / Similar hotel
+        o G.S.T 5% Extra -- Cost incidental to any change in the itinerary/ stay on account of flight cancellation due to bad weather,
+        ill health, roadblocks and/or any factors beyond control. Note :- Rohtang Pass / Snow Point Sightseeing will be possible
+        if Govt. can Allow our transport for the Sightseeing. Otherwise client have to take another transport for Rohtang Pass
+        / Snow Point Sightseeing as per clients own cost.
+      </p>
+    </div>
+  </mat-card>
+</mat-card>

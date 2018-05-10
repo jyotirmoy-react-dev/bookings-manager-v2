@@ -40,7 +40,9 @@ export class ExistingenquiriesComponent implements OnInit {
         });
     });
   }
-
+  hotelTemplate(id) {
+    this.router.navigate(['hoteltemplate',id]);
+  }
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches

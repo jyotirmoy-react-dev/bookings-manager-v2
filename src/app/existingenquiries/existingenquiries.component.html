@@ -62,7 +62,7 @@
       <ng-container matColumnDef="Create Template">
         <mat-header-cell *matHeaderCellDef mat-sort-header> ... </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          <button mat-icon-button color="warn">
+          <button mat-icon-button color="warn" (click)="hotelTemplate(element.id)">
             <mat-icon>vertical_split</mat-icon>
           </button>
         </mat-cell>

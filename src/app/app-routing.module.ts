@@ -12,10 +12,12 @@ import { CategoriesComponent } from './categories/categories.component';
 import { TransportsComponent } from './transports/transports.component';
 import { RoomtypesComponent } from './roomtypes/roomtypes.component';
 import { LoginComponent } from './login/login.component';
+import { HoteltemplateComponent } from './hoteltemplate/hoteltemplate.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: CustomerhomeComponent, pathMatch: 'full' , canActivate: [AuthguardService] },
   { path: 'managehotel/:id', component: ManagehotelComponent, pathMatch: 'full', canActivate: [AuthguardService]},
+  { path: 'hoteltemplate/:id', component: HoteltemplateComponent, pathMatch: 'full', canActivate: [AuthguardService] },
   { path: 'hotels', component: ExistingenquiriesComponent, pathMatch: 'full', canActivate:[AuthguardService]},
   { path: 'addhotel', component: AddhotelComponent, pathMatch: 'full', canActivate: [AuthguardService]},
   { path: 'categories', component: CategoriesComponent, pathMatch: 'full', canActivate: [AuthguardService]},
