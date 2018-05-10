@@ -86,6 +86,8 @@ this.setUpForm();
         HAddress: value.HAddress,
         HPhone: value.HPhone,
         HEmail: value.HEmail,
+        HCheckin: value.HCheckin,
+        HCheckout: value.HCheckout
       };
       this.getdetails.updateHotel(this.id,this.token,send_data).subscribe(res => {
         this.snackBar.open('Done !', '', {
