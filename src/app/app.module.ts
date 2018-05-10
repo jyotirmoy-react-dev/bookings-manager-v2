@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CustomerhomeComponent } from './customerhome/customerhome.component';
-import { NsfnewslistComponent } from './nsfnewslist/nsfnewslist.component';
 import { FetchfileserviceService } from './fetchfileservice.service';
 import { AppauthsetupService } from './appauthsetup.service';
 import { AppmainComponent } from './appmain/appmain.component';
@@ -59,12 +58,12 @@ import { HotelCategoriesComponent } from './managehotel/categories/Hotelcategori
 import { HotelRoomtypesComponent } from './managehotel/roomtypes/Hotelroomtypes.component';
 import { RoomtypesService } from './managehotel/roomtypes/roomtypes.service';
 import { LoginComponent } from './login/login.component';
+import { HoteltemplateComponent } from './hoteltemplate/hoteltemplate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerhomeComponent,
-    NsfnewslistComponent,
     AppmainComponent,
     Page404NotFoundComponent,
     SubmitwrasapprovalComponent,
@@ -80,7 +79,8 @@ import { LoginComponent } from './login/login.component';
     HotelCategoriesComponent,
     HotelRoomtypesComponent,
     RoomtypesComponent,
-    LoginComponent
+    LoginComponent,
+    HoteltemplateComponent
   ],
   imports: [
     BrowserModule,
