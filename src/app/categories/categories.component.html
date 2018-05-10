@@ -1,5 +1,4 @@
 <mat-card>
-  <app-back-button-component></app-back-button-component>
 <form [formGroup]="categoryForm" (ngSubmit)="addCategory(categoryForm)" novalidate>
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Category Type" formControlName="CName" >

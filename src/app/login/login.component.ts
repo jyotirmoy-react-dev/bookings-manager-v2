@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
         this.homeService.setToken(token);
         this.homeService.showHideLoader(false);
         this.homeService.setUserLogFlag(true);
-        this.router.navigate(['']);
+        this.router.navigate(['home']);
       });
     }
   }

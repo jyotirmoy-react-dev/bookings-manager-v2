@@ -38,7 +38,8 @@ return this.http.post < Logininfo > ('https://intense-bastion-97088.herokuapp.co
       }
   }
 
-  setUserLogout(token){
+  logoutUser(){
+    const token = sessionStorage.getItem('token');
     return this.http.post('https://intense-bastion-97088.herokuapp.com/api/Users/logout?access_token=' + token, token);
   }
   

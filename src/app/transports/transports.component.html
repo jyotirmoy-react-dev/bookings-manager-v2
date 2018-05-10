@@ -1,5 +1,4 @@
 <mat-card>
-  <app-back-button-component></app-back-button-component>
   <form [formGroup]="transportForm" (ngSubmit)="addTransport(transportForm)" novalidate>
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Transport Type" formControlName="TName" >

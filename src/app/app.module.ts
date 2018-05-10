@@ -33,17 +33,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AmComponent } from './existingenquiries/am.component';
 import { ActionComponentComponent } from './existingenquiries/action-component/action-component.component';
-import { OnlineApplicationsComponent } from './online-applications/online-applications.component';
-import { SampleComponentComponent } from './online-applications/sample-component/sample-component.component';
-import { StatusComponentComponent } from './online-applications/status-component/status-component.component';
-import { ProductDescComponentComponent } from './online-applications/product-desc-component/product-desc-component.component';
-import { DueDateComponentComponent } from './online-applications/due-date-component/due-date-component.component';
-import { OverdueComponentComponent } from './online-applications/overdue-component/overdue-component.component';
 import { BackButtonComponentComponent } from './back-button-component/back-button-component.component';
-import { ViewstatComponentComponent } from './online-applications/viewstat-component/viewstat-component.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ViewnotesComponentComponent,
-   ViewnotesDialogComponent } from './online-applications/viewnotes-component/viewnotes-component.component';
 import { MatProgressSpinnerModule, MatSelectModule, MatCheckboxModule, 
   MatTooltipModule, MatChipsModule, MatSnackBarModule, MatRadioModule, MatInputModule,
    MatToolbarModule, MatSidenavModule, MatTabsModule } from '@angular/material';
@@ -80,16 +71,7 @@ import { LoginComponent } from './login/login.component';
     ExistingenquiriesComponent,
     AmComponent,
     ActionComponentComponent,
-    OnlineApplicationsComponent,
-    SampleComponentComponent,
-    StatusComponentComponent,
-    ProductDescComponentComponent,
-    DueDateComponentComponent,
-    OverdueComponentComponent,
     BackButtonComponentComponent,
-    ViewstatComponentComponent,
-    ViewnotesComponentComponent,
-    ViewnotesDialogComponent,
     ManagehotelComponent,
     AddhotelComponent,
     TransportationComponent,

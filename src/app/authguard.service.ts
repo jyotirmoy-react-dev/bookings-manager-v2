@@ -11,8 +11,9 @@ export class AuthguardService implements CanActivate {
 canActivate(next : ActivatedRouteSnapshot, state : RouterStateSnapshot) {
   const redirectUrl = state.url;
   if (this.fetchhome.checkToken()) {
-    return true;
-    //this.router.navigate(['']);
+      this.fetchhome.showHideLoader(false);
+      this.fetchhome.setUserLogFlag(true);
+      return true;
   } else {
     this.router.navigate(['login']);
     

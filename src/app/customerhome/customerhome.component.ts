@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HomepageserviceService } from '../homepageservice.service';
 @Component({
   selector: 'app-customerhome',
   templateUrl: './customerhome.component.html',
@@ -7,7 +6,7 @@ import { HomepageserviceService } from '../homepageservice.service';
 })
 export class CustomerhomeComponent implements OnInit {
   appsCount: any = '';
-  constructor(private fetchHome: HomepageserviceService) {}
+  constructor() {}
   ngOnInit() {
   }
 

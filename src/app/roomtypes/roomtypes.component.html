@@ -1,5 +1,4 @@
 <mat-card>
-  <app-back-button-component></app-back-button-component>
   <form [formGroup]="roomtypeForm" (ngSubmit)="addRoomtype(roomtypeForm)" novalidate>
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Room Type" formControlName="RName">
