@@ -7,7 +7,9 @@ interface Hoteldetails {
   "HAddress" : "",
   "HLocation" : "",
   "HPhone" : "",
-  "HEmail" : ""
+  "HEmail" : "",
+  "HCheckin": '',
+  "HCheckout": ''
 };
 @Injectable()
 export class ManagehotelService {

@@ -12,15 +12,17 @@ import { HomepageserviceService } from './homepageservice.service';
 import { CategoriesComponent } from './categories/categories.component';
 import { TransportsComponent } from './transports/transports.component';
 import { RoomtypesComponent } from './roomtypes/roomtypes.component';
+import { LoginComponent } from './login/login.component';
 const routes: Routes = [
-  { path: '', component: CustomerhomeComponent },
-  { path: 'appmain', component: AppmainComponent },
+  { path: '', component: CustomerhomeComponent, canActivate: [AuthguardService]},
+  { path: 'appmain', component: AppmainComponent, canActivate: [AuthguardService] },
   { path: 'managehotel/:id', component: ManagehotelComponent, canActivate: [AuthguardService]},
   { path: 'hotels', component: ExistingenquiriesComponent, canActivate:[AuthguardService]},
   { path: 'addhotel', component: AddhotelComponent, canActivate: [AuthguardService]},
   { path: 'categories', component: CategoriesComponent, canActivate: [AuthguardService]},
   { path: 'transports', component: TransportsComponent, canActivate: [AuthguardService]},
   { path: 'roomtypes', component: RoomtypesComponent, canActivate: [AuthguardService]},
+  { path: 'login', component: LoginComponent},
   { path: '**' , component: Page404NotFoundComponent }
 ];
 

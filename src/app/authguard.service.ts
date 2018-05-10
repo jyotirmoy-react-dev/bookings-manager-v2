@@ -9,10 +9,12 @@ export class AuthguardService implements CanActivate {
   }
   
 canActivate(next : ActivatedRouteSnapshot, state : RouterStateSnapshot) {
+  const redirectUrl = state.url;
   if (this.fetchhome.checkToken()) {
     return true;
+    //this.router.navigate(['']);
   } else {
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
     
   }
 }

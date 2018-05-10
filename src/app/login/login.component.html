@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row" style="margin-top:30px;margin-bottom:30px;">
+    <div class="col"></div>
+    <div class="col">
+      <mat-card>
+        <h3>Login</h3>
+        <hr/>
+        <form [formGroup]="loginForm" (ngSubmit)="userLogin(loginForm)">
+          <mat-card>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="User Name" formControlName="email" value="">
+            </mat-form-field>
+          </mat-card>
+          <mat-card>
+            <mat-form-field class="example-full-width">
+              <input matInput type="password" placeholder="Password" formControlName="password" value="">
+            </mat-form-field>
+          </mat-card>
+          <mat-card>
+            <button mat-raised-button>Login</button>
+          </mat-card>
+        </form>
+      </mat-card>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

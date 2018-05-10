@@ -8,15 +8,29 @@
         <form [formGroup]="hotelForm" (ngSubmit)="saveHotel(hotelForm)" novalidate>
           <mat-card>
 
-            <mat-form-field class="example-full-width">
-              <input matInput name="previous_approval" placeholder="Hotel Name" formControlName="HName">
-            </mat-form-field>
+            <div class="row">
+                <div class="col">
+                  <mat-form-field class="example-full-width">
+                    <input matInput  placeholder="Hotel Name" formControlName="HName">
+                  </mat-form-field>
+                </div>
+                <div class="col">
+                  <mat-form-field class="example-full-width">
+                    <input matInput  placeholder="Hotel Checkin" formControlName="HCheckin">
+                  </mat-form-field>
+                </div>
+                <div class="col"> 
+                  <mat-form-field class="example-full-width">
+                    <input matInput  placeholder="Hotel Checkout" formControlName="HCheckout">
+                  </mat-form-field>
+                </div>
+            </div>
 
           </mat-card>
           <mat-card>
 
             <mat-form-field class="example-full-width">
-              <input matInput name="previous_approval" placeholder="Hotel Contact" formControlName="HContact">
+              <input matInput  placeholder="Hotel Contact" formControlName="HContact">
             </mat-form-field>
 
           </mat-card>
@@ -28,19 +42,19 @@
           </mat-card>
           <mat-card>
             <mat-form-field class="example-full-width">
-              <input matInput name="previous_approval" placeholder="Hotel Location" formControlName="HLocation">
+              <input matInput  placeholder="Hotel Location" formControlName="HLocation">
             </mat-form-field>
 
           </mat-card>
           <mat-card>
             <mat-form-field class="example-full-width">
-              <input matInput name="previous_approval" placeholder="Hotel Phone" formControlName="HPhone">
+              <input matInput  placeholder="Hotel Phone" formControlName="HPhone">
             </mat-form-field>
 
           </mat-card>
           <mat-card>
             <mat-form-field class="example-full-width">
-              <input matInput name="previous_approval" placeholder="Hotel Email" formControlName="HEmail">
+              <input matInput  placeholder="Hotel Email" formControlName="HEmail">
             </mat-form-field>
 
           </mat-card>

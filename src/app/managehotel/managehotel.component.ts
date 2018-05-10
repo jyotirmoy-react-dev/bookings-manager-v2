@@ -18,7 +18,9 @@ export class ManagehotelComponent implements OnInit {
     "HAddress": '',
     "HLocation": '',
     "HPhone": '',
-    "HEmail": ''
+    "HEmail": '',
+    "HCheckin":'',
+    "HCheckout":''
   };
   hotelForm: FormGroup;
   id = '';token='';
@@ -39,6 +41,8 @@ this.setUpForm();
         this.hotelDetails.HLocation = res.HLocation;
         this.hotelDetails.HPhone = res.HPhone;
         this.hotelDetails.HEmail = res.HEmail;
+        this.hotelDetails.HCheckin = res.HCheckin;
+        this.hotelDetails.HCheckout = res.HCheckout;
         this.setUpForm();
       });
     })
@@ -64,7 +68,13 @@ this.setUpForm();
         }),
         HEmail: new FormControl(this.hotelDetails.HEmail, {
           validators: Validators.required
-        })
+        }),
+      HCheckin: new FormControl(this.hotelDetails.HCheckin,{
+        validators: Validators.required
+      }),
+      HCheckout: new FormControl(this.hotelDetails.HCheckout,{
+        validators: Validators.required
+      })
       });
   }
   saveHotel({value,valid}){

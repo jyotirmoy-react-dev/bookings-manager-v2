@@ -11,6 +11,7 @@ interface Logininfo {
 @Injectable()
 export class HomepageserviceService {
   token = new BehaviorSubject((sessionStorage.getItem('token') ? sessionStorage.getItem('token') : ''));
+  isLoggedin = new BehaviorSubject(false);
   showLoader = new BehaviorSubject(false);
   constructor(private http: HttpClient) { }
   setToken(token) {
@@ -18,6 +19,10 @@ export class HomepageserviceService {
   }
   showHideLoader(value){
     this.showLoader.next(value);
+  }
+
+  setUserLogFlag(value){
+    this.isLoggedin.next(value);
   }
 
   setUserLogin(send_data){
@@ -31,6 +36,10 @@ return this.http.post < Logininfo > ('https://intense-bastion-97088.herokuapp.co
       else {
         return false;
       }
+  }
+
+  setUserLogout(token){
+    return this.http.post('https://intense-bastion-97088.herokuapp.com/api/Users/logout?access_token=' + token, token);
   }
   
 }

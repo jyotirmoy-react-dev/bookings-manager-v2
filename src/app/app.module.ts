@@ -67,6 +67,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { HotelCategoriesComponent } from './managehotel/categories/Hotelcategories.component';
 import { HotelRoomtypesComponent } from './managehotel/roomtypes/Hotelroomtypes.component';
 import { RoomtypesService } from './managehotel/roomtypes/roomtypes.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { RoomtypesService } from './managehotel/roomtypes/roomtypes.service';
     CategoriesComponent,
     HotelCategoriesComponent,
     HotelRoomtypesComponent,
-    RoomtypesComponent
+    RoomtypesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
