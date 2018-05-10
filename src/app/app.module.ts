@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { CustomerhomeComponent } from './customerhome/customerhome.component';
 import { FetchfileserviceService } from './fetchfileservice.service';
 import { AppauthsetupService } from './appauthsetup.service';
-import { AppmainComponent } from './appmain/appmain.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
@@ -25,7 +24,6 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { HomepageserviceService } from './homepageservice.service';
 import { MatTableModule } from '@angular/material/table';
-import { SubmitwrasapprovalComponent } from './submitwrasapproval/submitwrasapproval.component';
 import { ExistingenquiriesComponent } from './existingenquiries/existingenquiries.component';
 import { ExistingenquiryserviceService } from './existingenquiries/existingenquiryservice.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -38,8 +36,6 @@ import { MatProgressSpinnerModule, MatSelectModule, MatCheckboxModule,
   MatTooltipModule, MatChipsModule, MatSnackBarModule, MatRadioModule, MatInputModule,
    MatToolbarModule, MatSidenavModule, MatTabsModule } from '@angular/material';
 
-
-import { AppmainserviceService } from './appmain/appmainservice.service';
 import { LoaderComponent } from './loader/loader.component';
 import { AuthguardService } from './authguard.service';
 import { DynamicFormModule } from './dynamic-form/dynamic-form.module';
@@ -64,9 +60,7 @@ import { HoteltemplateComponent } from './hoteltemplate/hoteltemplate.component'
   declarations: [
     AppComponent,
     CustomerhomeComponent,
-    AppmainComponent,
     Page404NotFoundComponent,
-    SubmitwrasapprovalComponent,
     ExistingenquiriesComponent,
     AmComponent,
     ActionComponentComponent,
@@ -120,7 +114,7 @@ import { HoteltemplateComponent } from './hoteltemplate/hoteltemplate.component'
     useClass: AppauthsetupService,
     multi:true
   },
-    HomepageserviceService, ExistingenquiryserviceService, AppmainserviceService, AuthguardService],
+    HomepageserviceService, ExistingenquiryserviceService, AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

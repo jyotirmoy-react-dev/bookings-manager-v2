@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {CustomerhomeComponent} from './customerhome/customerhome.component';
-import { AppmainComponent } from './appmain/appmain.component';
 import { Page404NotFoundComponent } from './page404-not-found/page404-not-found.component';
 import { ExistingenquiriesComponent } from './existingenquiries/existingenquiries.component';
 import { AuthguardService } from './authguard.service';
