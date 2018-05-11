@@ -69,8 +69,8 @@ saveHotel({valid, value}) {
           if (error.error.code == 'AUTHORIZATION_REQUIRED') {
             this.fetchhome.logoutUser();
           }
-        }));
-    })
+        });
+    });
   }
   }
 }

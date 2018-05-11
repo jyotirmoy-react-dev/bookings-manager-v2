@@ -36,7 +36,7 @@ export class AddcustomerComponent implements OnInit {
       address: new FormControl('',{
         validators: Validators.required
       }),
-      address2: new FormControl('',{}),
+      address2: new FormControl(''),
       city: new FormControl('',{
         validators: Validators.required
       }),

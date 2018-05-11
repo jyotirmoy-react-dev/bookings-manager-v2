@@ -6,8 +6,8 @@ import { EditcustomersComponent } from './editcustomers/editcustomers.component'
 import { AddcustomerService } from './addcustomer/addcustomer.service';
 import { ManagecustomersService } from './managecustomers/managecustomers.service';
 import { EditcustomersService } from './editcustomers/editcustomers.service';
-import { MatCardModule, MatFormFieldModule, MatIconModule } from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
@@ -17,7 +17,10 @@ import { AppRoutingModule } from '../app-routing.module';
     MatFormFieldModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule
   ],
   declarations: [AddcustomerComponent, ManagecustomersComponent, EditcustomersComponent],
   exports: [AddcustomerComponent, ManagecustomersComponent, EditcustomersComponent],
