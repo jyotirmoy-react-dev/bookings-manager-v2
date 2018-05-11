@@ -15,4 +15,8 @@ export class ExistingenquiryserviceService {
 getHotels(token) {
   return this.http.get<Hotels[]>('https://intense-bastion-97088.herokuapp.com/api/hotel_masters?access_token=' + token);
   }
+
+  getFilterHotelsByCategory(token,category){
+    return this.http.get('https://intense-bastion-97088.herokuapp.com/api/hotel_category_tables?filter[where][CCode]=' + category + '&access_token=' + token);
+  }
 }

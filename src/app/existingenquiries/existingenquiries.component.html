@@ -10,6 +10,13 @@
       <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Select Category" [(ngModel)]="categorySel" (change)="filterHotels()">
+          <mat-option *ngFor="let cat of categories" [value]="cat.CName">
+            {{ cat.CName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <mat-table #table [dataSource]="dataSource" matSort>
   
