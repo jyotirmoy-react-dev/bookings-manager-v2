@@ -1,12 +1,15 @@
 <mat-card style="margin-left:5px;">
-  <form [formGroup]="transportForm" (ngSubmit)="addTransport(transportForm)" novalidate>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Transport Type" formControlName="TName" >
-    </mat-form-field>
-    <button mat-icon-button color="warn" ><mat-icon>add</mat-icon></button>
-  </form>
+
   <h4>Manage Transports</h4>
-  <div class="example-container mat-elevation-z8">
+  <div class="example-container mat-elevation-z8" style="padding:5px;">
+      <form [formGroup]="transportForm" (ngSubmit)="addTransport(transportForm)" novalidate>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Transport Type" formControlName="TName">
+        </mat-form-field>
+        <button mat-icon-button color="warn">
+          <mat-icon>add</mat-icon>
+        </button>
+      </form><br/>
     <mat-table #table [dataSource]="datasource">
       <!-- Name Column -->
       <ng-container matColumnDef="Transport Name">
