@@ -51,6 +51,9 @@ export class AddcustomerComponent implements OnInit {
       }),
       postcode: new FormControl('',{
         validators: Validators.required
+      }),
+      guests: new FormControl('',{
+        validators: Validators.required
       })
 
     });
