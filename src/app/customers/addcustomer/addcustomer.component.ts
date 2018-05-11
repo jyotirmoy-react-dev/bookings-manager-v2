@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AddcustomerComponent implements OnInit {
   customerForm: FormGroup;
+  hotelFormGroup: FormGroup;
   token = '';
   constructor(private homeS: HomepageserviceService) { }
 
@@ -16,6 +17,11 @@ export class AddcustomerComponent implements OnInit {
     this.homeS.token.subscribe(token => {
       this.token = token;
       this.setupCustomerForm();
+      this.hotelFormGroup = new FormGroup({
+        HCode: new FormControl('',{
+          validators: Validators.required
+        })
+      });
     })
   }
 
