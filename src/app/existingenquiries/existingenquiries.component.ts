@@ -35,8 +35,10 @@ export class ExistingenquiriesComponent implements OnInit {
         this.dataSource.data = res;
         this.fetchhome.showHideLoader(false);
       },
-        error => {
-          console.log(error);
+        ({error}) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED'){
+              this.fetchhome.logoutUser();
+          }
         });
     });
   }

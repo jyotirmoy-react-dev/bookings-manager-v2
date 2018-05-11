@@ -39,8 +39,10 @@ export class TransportsComponent implements OnInit {
         this.datasource.data = res;
         this.home.showHideLoader(false);
       },
-        err => {
-          console.error(err);
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.logoutUser();
+          }
         });
     })
   }
@@ -52,8 +54,10 @@ export class TransportsComponent implements OnInit {
         this.getTransports();
         this.home.showHideLoader(false);
       },
-        err => {
-          console.error(err);
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.logoutUser();
+          }
         });
     })
   }
@@ -70,8 +74,10 @@ export class TransportsComponent implements OnInit {
         this.home.showHideLoader(false);
         this.setupForm();
       },
-        err => {
-          console.error(err);
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.logoutUser();
+          }
         });
     })
     }

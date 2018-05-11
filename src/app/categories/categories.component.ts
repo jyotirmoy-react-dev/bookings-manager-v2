@@ -69,10 +69,12 @@ export class CategoriesComponent implements OnInit {
           this.fetchome.showHideLoader(false);
           this.setUpForm();
         },
-          err => {
-            console.error(err);
+          ({ error }) => {
+            if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+              this.fetchome.logoutUser();
+            }
           });
-      })
+      });
     }
   }
 

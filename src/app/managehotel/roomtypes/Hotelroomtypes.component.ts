@@ -40,7 +40,12 @@ export class HotelRoomtypesComponent implements OnInit {
   getRoomtypes(token) {
     this.fetch.getRoomtypes(token).subscribe(res => {
       this.roomtypes = res;
-    });
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.logoutUser();
+          }
+        });
   }
 
   getHotelRoom() {
@@ -48,7 +53,12 @@ export class HotelRoomtypesComponent implements OnInit {
     this.fetch.getHotelRoomtypes(this.token, this.hid).subscribe(res => {
       this.Hroomtypes = res;
       this.home.showHideLoader(false);
-    });
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.logoutUser();
+          }
+        });
   }
   saveRoomtypeToHotel({ valid, value }) {
     this.home.showHideLoader(true);
@@ -60,14 +70,24 @@ export class HotelRoomtypesComponent implements OnInit {
     };
     this.fetch.saveHotelRoomtype(this.token, send_data).subscribe(res => {
       this.getHotelRoom();
-    });
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.logoutUser();
+          }
+        });
   }
 
   deleteRoom(send_data) {
     this.home.showHideLoader(true);
     this.fetch.delteHotelRoom(send_data, this.token).subscribe(res => {
       this.getHotelRoom();
-    });
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.logoutUser();
+          }
+        });
   }
 
 }

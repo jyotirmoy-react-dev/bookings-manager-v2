@@ -44,7 +44,12 @@ this.setUpForm();
         this.hotelDetails.HCheckin = res.HCheckin;
         this.hotelDetails.HCheckout = res.HCheckout;
         this.setUpForm();
-      });
+      },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.fetch.logoutUser();
+          }
+        });
     })
   }) 
   }
@@ -94,7 +99,12 @@ this.setUpForm();
           duration: 2000,
         });
         this.router.navigate(['hotels']);
-      });
+      },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.fetch.logoutUser();
+          }
+        });
     }
 
   }
@@ -105,6 +115,11 @@ this.setUpForm();
         duration: 2000,
       });
       this.router.navigate(['hotels']);
-    })
+    },
+      ({ error }) => {
+        if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+          this.fetch.logoutUser();
+        }
+      });
   }
 }
