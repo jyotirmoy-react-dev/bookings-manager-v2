@@ -1,6 +1,6 @@
 <mat-card style="margin-left:5px;">
 
-<h4>View Hotels </h4>
+<h4>Manage Hotels </h4>
 <mat-card-content>
   <div class="example-container mat-elevation-z8" style="padding:5px;">
     <button mat-raised-button (click)="startNew()" color="warn">
@@ -9,6 +9,13 @@
     <div class="example-header">
       <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Select Category" [(ngModel)]="categorySel" (change)="filterHotels()">
+          <mat-option *ngFor="let cat of categories" [value]="cat.CName">
+            {{ cat.CName }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
     <mat-table #table [dataSource]="dataSource" matSort>

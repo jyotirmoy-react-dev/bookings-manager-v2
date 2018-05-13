@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 interface Logininfo {
   "id": "",
   "ttl": '',
@@ -13,7 +13,7 @@ export class HomepageserviceService {
   token = new BehaviorSubject((sessionStorage.getItem('token') ? sessionStorage.getItem('token') : ''));
   isLoggedin = new BehaviorSubject(false);
   showLoader = new BehaviorSubject(false);
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private routes: Router) { }
   setToken(token) {
     this.token.next(token);
   }
@@ -43,4 +43,12 @@ return this.http.post < Logininfo > ('https://intense-bastion-97088.herokuapp.co
     return this.http.post('https://intense-bastion-97088.herokuapp.com/api/Users/logout?access_token=' + token, token);
   }
   
+  unauthUserLogOut(){
+        this.showHideLoader(true);
+        window.sessionStorage.removeItem('token');
+        window.sessionStorage.clear();
+        this.setUserLogFlag(false);
+        this.routes.navigate(['login']);
+        this.showHideLoader(false);
+  }
 }

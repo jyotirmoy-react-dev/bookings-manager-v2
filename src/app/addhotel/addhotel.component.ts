@@ -65,10 +65,12 @@ saveHotel({valid, value}) {
         });
           this.router.navigate(['hotels']);
       },
-    error=>{
-      console.error(error);
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.fetchhome.unauthUserLogOut();
+          }
+        });
     });
-    })
   }
   }
 }

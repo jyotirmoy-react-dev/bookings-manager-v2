@@ -1,0 +1,111 @@
+<mat-card>
+  <mat-card-title>
+    Add New Customer
+  </mat-card-title>
+  <mat-card-content>
+    <mat-card>
+      <mat-horizontal-stepper [linear]="true" #stepper>
+        <mat-step [stepControl]="hotelFormGroup">
+          <form [formGroup]="hotelFormGroup">
+            <ng-template matStepLabel>Select Hotel</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Select Hotel" formControlName="HCode" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="customerForm" [optional]="false">
+          <form class="example-form" [formGroup]="customerForm" (ngSubmit)="saveCustomer(customerForm)">
+            <ng-template matStepLabel>Fill out customer information</ng-template>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Company (disabled)" disabled value="Google">
+            </mat-form-field>
+      
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="First name" formControlName="CFirstname">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Last Name" formControlName="CLastname">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="No. of Guests" formControlName="CNGuests">
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <p>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" formControlName="CEmail">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field class="example-full-width">
+                <span matPrefix>+911 &nbsp;</span>
+                <input type="tel" matInput placeholder="Telephone" formControlName="CPhone">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Address" formControlName="CAddress">
+        
+                    </textarea>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Address 2" formControlName="CAddress2">
+        
+                    </textarea>
+              </mat-form-field>
+            </p>
+      
+            <table class="example-full-width" cellspacing="0">
+              <tr>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="City" formControlName="CCity">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="State" formControlName="CState">
+                  </mat-form-field>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <input matInput #postalCode maxlength="5" placeholder="Postal Code" formControlName="CPin">
+                    <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                  </mat-form-field>
+                </td>
+              </tr>
+            </table>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          You are now done.
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card>
+  </mat-card-content>
+</mat-card>
+
+
+
+

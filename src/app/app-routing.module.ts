@@ -12,6 +12,7 @@ import { TransportsComponent } from './transports/transports.component';
 import { RoomtypesComponent } from './roomtypes/roomtypes.component';
 import { LoginComponent } from './login/login.component';
 import { HoteltemplateComponent } from './hoteltemplate/hoteltemplate.component';
+import { AddcustomerComponent } from './customers/addcustomer/addcustomer.component';
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: CustomerhomeComponent, pathMatch: 'full' , canActivate: [AuthguardService] },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent, pathMatch: 'full', canActivate: [AuthguardService]},
   { path: 'transports', component: TransportsComponent, pathMatch: 'full', canActivate: [AuthguardService]},
   { path: 'roomtypes', component: RoomtypesComponent, pathMatch: 'full', canActivate: [AuthguardService]},
+  { path: 'newcustomer', component: AddcustomerComponent, pathMatch: 'full', canActivate: [AuthguardService]},
   { path: 'login', component: LoginComponent, pathMatch: 'full'},
   { path: '**' , component: Page404NotFoundComponent }
 ];

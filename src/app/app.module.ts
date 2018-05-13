@@ -34,7 +34,7 @@ import { BackButtonComponentComponent } from './back-button-component/back-butto
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule, MatSelectModule, MatCheckboxModule, 
   MatTooltipModule, MatChipsModule, MatSnackBarModule, MatRadioModule, MatInputModule,
-   MatToolbarModule, MatSidenavModule, MatTabsModule } from '@angular/material';
+   MatToolbarModule, MatSidenavModule, MatTabsModule, MatStepperModule } from '@angular/material';
 
 import { LoaderComponent } from './loader/loader.component';
 import { AuthguardService } from './authguard.service';
@@ -55,6 +55,7 @@ import { HotelRoomtypesComponent } from './managehotel/roomtypes/Hotelroomtypes.
 import { RoomtypesService } from './managehotel/roomtypes/roomtypes.service';
 import { LoginComponent } from './login/login.component';
 import { HoteltemplateComponent } from './hoteltemplate/hoteltemplate.component';
+import { CustomersModule } from './customers/customers.module';
 
 @NgModule({
   declarations: [
@@ -107,7 +108,9 @@ import { HoteltemplateComponent } from './hoteltemplate/hoteltemplate.component'
     DynamicFormModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatTabsModule
+    MatTabsModule,
+    CustomersModule,
+    MatStepperModule
   ],
   providers: [FetchfileserviceService,AddhotelService,ManagehotelService,CategoriesService,TransportationService,RoomtypesService,{
     provide:HTTP_INTERCEPTORS,

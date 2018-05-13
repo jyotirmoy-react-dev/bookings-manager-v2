@@ -12,7 +12,7 @@ import { ManagehotelService } from '../managehotel/managehotel.service';
   styleUrls: ['./hoteltemplate.component.css']
 })
 export class HoteltemplateComponent implements OnInit {
-  id:= '' ;
+  id:any= '' ;
   token = '';
   dataFetch = false;
   hotelDetails = {

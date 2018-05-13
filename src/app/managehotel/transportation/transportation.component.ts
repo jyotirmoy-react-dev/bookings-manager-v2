@@ -41,7 +41,12 @@ export class TransportationComponent implements OnInit {
   getTransports(token) {
     this.transportFetch.getTransportation(token).subscribe(res => {
       this.transports = res;
-    });
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.unauthUserLogOut();
+          }
+        });
   }
 
   getHotelTransports() {
@@ -49,7 +54,12 @@ export class TransportationComponent implements OnInit {
     this.transportFetch.getHoteTransport(this.token, this.hid).subscribe(res => {
       this.HTransports = res;
       this.home.showHideLoader(false);
-    });
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.unauthUserLogOut();
+          }
+        });
   }
 
   saveHotelTrasnport({ valid, value }) {
@@ -61,14 +71,24 @@ export class TransportationComponent implements OnInit {
     };
     this.transportFetch.saveHotelTransportation(this.token, send_data).subscribe(res => {
       this.getHotelTransports();
-    });
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.unauthUserLogOut();
+          }
+        });
   }
 
   deleteTransport(send_data) {
     this.home.showHideLoader(true);
     this.transportFetch.delteHotelTransport(send_data, this.token).subscribe(res => {
       this.getHotelTransports();
-    });
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.home.unauthUserLogOut();
+          }
+        });
   }
 
 }

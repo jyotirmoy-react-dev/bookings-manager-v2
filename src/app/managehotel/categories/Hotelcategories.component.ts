@@ -29,7 +29,12 @@ export class HotelCategoriesComponent implements OnInit {
   getCategories(token){
     this.fetch.getCategories(token).subscribe(res => {
       this.categories = res;
-    });
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.fetchHome.unauthUserLogOut();
+          }
+        });
   }
 
   getHotelCat(){
@@ -37,7 +42,12 @@ export class HotelCategoriesComponent implements OnInit {
     this.fetch.getHotelCategories(this.token,this.hid).subscribe(res => {
       this.Hcategories = res;
       this.fetchHome.showHideLoader(false);
-    });
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.fetchHome.unauthUserLogOut();
+          }
+        });
   }
 
   setupForm(){
@@ -58,14 +68,24 @@ export class HotelCategoriesComponent implements OnInit {
     this.fetch.saveHotelCategory(this.token, send_data).subscribe(res => {
       this.getHotelCat();
       
-    })
+    },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.fetchHome.unauthUserLogOut();
+          }
+        })
   }
 
 deleteCategory(send_data){
 this.fetchHome.showHideLoader(true);
   this.fetch.deleteHotelCategory(send_data,this.token).subscribe(res => {
 this.getHotelCat();
-  });
+  },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.fetchHome.unauthUserLogOut();
+          }
+        });
 }
 
 }

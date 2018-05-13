@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./managehotel.component.css']
 })
 export class ManagehotelComponent implements OnInit {
+  
   hotelDetails = {
     "id":'',
     "HName": '',
@@ -44,9 +45,14 @@ this.setUpForm();
         this.hotelDetails.HCheckin = res.HCheckin;
         this.hotelDetails.HCheckout = res.HCheckout;
         this.setUpForm();
-      });
-    })
-  }) 
+      },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.fetch.unauthUserLogOut();
+          }
+        });
+    });
+  }); 
   }
 
   setUpForm() {
@@ -94,7 +100,12 @@ this.setUpForm();
           duration: 2000,
         });
         this.router.navigate(['hotels']);
-      });
+      },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.fetch.unauthUserLogOut();
+          }
+        });
     }
 
   }
@@ -105,6 +116,11 @@ this.setUpForm();
         duration: 2000,
       });
       this.router.navigate(['hotels']);
-    })
+    },
+      ({ error }) => {
+        if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+          this.fetch.unauthUserLogOut();
+        }
+      });
   }
 }
