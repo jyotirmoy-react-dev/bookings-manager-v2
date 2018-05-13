@@ -73,10 +73,9 @@ export class ExistingenquiriesComponent implements OnInit {
     })
   }
 
-  
+
   filterHotels(){
     const category = this.categorySel;
-    // const newData = this.dataSource.data.filter(item => {});
     let hotels = this.dataSource.data;
     let filteredHotels = [];
     if(category != '')
