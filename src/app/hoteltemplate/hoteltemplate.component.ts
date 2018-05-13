@@ -45,29 +45,40 @@ export class HoteltemplateComponent implements OnInit {
         this.getHotelDetails();
         this.getRoomDetails();
         this.getTransportDetails();
-      })
+      },
+        ({ error }) => {
+          if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+            this.homes.logoutUser();
+          }
+        });
     });
   }
   getHotelDetails(){
     this.dataFetch = true;
     this.hotelS.getHotelDetails(this.id,this.token).subscribe(res => {
       this.hotelDetails = res;
-      
-    })
+    },
+      ({ error }) => {
+        if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+          this.homes.logoutUser();
+        }
+      });
   }
   getRoomDetails(){
-    
     this.roomtypeS.getHotelRoomtypes(this.token,this.id).subscribe(res => {
       this.Roomtypes = res;
-      
     });
   }
   getTransportDetails(){
-    
     this.transportS.getHoteTransport(this.token,this.id).subscribe(res => {
       this.transportations = res;
       this.dataFetch = false;
-    });
+    },
+      ({ error }) => {
+        if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+          this.homes.logoutUser();
+        }
+      });
   }
   // getHotelCategories
   // getHotelRoomtypes(token, id)
