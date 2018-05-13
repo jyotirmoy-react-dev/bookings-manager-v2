@@ -13,6 +13,8 @@ import { CategoriesService } from '../managehotel/categories/categories.service'
 export class ExistingenquiriesComponent implements OnInit {
   categories = [];
   categorySel = '';
+  token = '';
+  hotelWithCatgories:any = [];
   displayedColumns = ['Hotel Name', 'Hotel Contact', 'Hotel Address', 'Hotel Phone', 'Hotel Email', 'Hotel Location', 'Create Template'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -39,6 +41,8 @@ export class ExistingenquiriesComponent implements OnInit {
         this.dataSource.data = res;
         this.fetchhome.showHideLoader(false);
         this.getCategories(token);
+        this.token = token;
+        this.getHotelCategories();
       },
         ({error}) => {
           if (error.error.code == 'AUTHORIZATION_REQUIRED'){
@@ -62,9 +66,34 @@ export class ExistingenquiriesComponent implements OnInit {
       this.fetchhome.showHideLoader(false);
     })
   }
+  
+  getHotelCategories(){
+    this.fetchData.getHotelByCategories(this.token).subscribe(res => {
+        this.hotelWithCatgories = res;
+    })
+  }
+
+  
   filterHotels(){
     const category = this.categorySel;
     // const newData = this.dataSource.data.filter(item => {});
-    
+    let hotels = this.dataSource.data;
+    let filteredHotels = [];
+    if(category != '')
+    {
+      this.hotelWithCatgories.forEach(element => {
+        if (element.CCode == category) {
+          this.dataSource.data.forEach(hotel =>{
+            if (hotel.id == element.HCode) {
+              filteredHotels.push(hotel);
+            }
+          });
+        }
+      });
+      this.dataSource.data = filteredHotels;
+    }
+    else{
+      this.dataSource.data = hotels;
+    }
   }
 }

@@ -39,11 +39,5 @@ export class AddcustomerComponent implements OnInit {
     });
   }
 
-<<<<<<< HEAD
   saveCustomer({valid, value}) {}
-=======
-  saveCustomer({valid, value}){
-
-  }
->>>>>>> f6366ad103005eb8b58c1b7c0a45e782b8342406
 }

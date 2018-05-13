@@ -19,4 +19,8 @@ getHotels(token) {
   getFilterHotelsByCategory(token,category){
     return this.http.get('https://intense-bastion-97088.herokuapp.com/api/hotel_category_tables?filter[where][CCode]=' + category + '&access_token=' + token);
   }
+
+  getHotelByCategories(token){
+    return this.http.get('https://intense-bastion-97088.herokuapp.com/api/hotel_category_tables?access_token=' + token);
+  }
 }

@@ -76,7 +76,7 @@ export class HoteltemplateComponent implements OnInit {
     },
       ({ error }) => {
         if (error.error.code == 'AUTHORIZATION_REQUIRED') {
-          this.homes.logoutUser();
+          this.homes.unauthUserLogOut();
         }
       });
   }
