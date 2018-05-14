@@ -12,6 +12,7 @@ import { CategoriesService } from '../managehotel/categories/categories.service'
 
 export class ExistingenquiriesComponent implements OnInit {
   categories = [];
+  allHotels = [];
   categorySel = '';
   token = '';
   hotelWithCatgories:any = [];
@@ -39,6 +40,7 @@ export class ExistingenquiriesComponent implements OnInit {
     this.fetchhome.token.subscribe(token=>{
       this.fetchData.getHotels(token).subscribe(res => {
         this.dataSource.data = res;
+        this.allHotels = res;
         this.fetchhome.showHideLoader(false);
         this.getCategories(token);
         this.token = token;
@@ -76,23 +78,26 @@ export class ExistingenquiriesComponent implements OnInit {
 
   filterHotels(){
     const category = this.categorySel;
-    let hotels = this.dataSource.data;
-    let filteredHotels = [];
-    if(category != '')
+    const hotelWithCatgories = this.hotelWithCatgories;
+    const filteredHotels = [];
+    let filteredCategories = [];
+    if(category)
     {
-      this.hotelWithCatgories.forEach(element => {
-        if (element.CCode == category) {
-          this.dataSource.data.forEach(hotel =>{
-            if (hotel.id == element.HCode) {
-              filteredHotels.push(hotel);
-            }
-          });
-        }
+      const allHotels = this.allHotels;
+      console.log(allHotels);
+      filteredCategories = hotelWithCatgories.filter((item) => item.CCode == category);
+      filteredCategories.filter(cat => {
+        allHotels.filter((hotel) => {
+          if (hotel.id == cat.HCode) {
+            filteredHotels.push(hotel);
+          }
+        });
       });
+      console.log(filteredHotels);
       this.dataSource.data = filteredHotels;
     }
     else{
-      this.dataSource.data = hotels;
+      this.dataSource.data = this.allHotels;
     }
   }
 }
