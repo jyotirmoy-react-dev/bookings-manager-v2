@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
       this.snackBar.open(error.error.message, '', {
         duration: 2000,
       });
+      this.buttonText = 'Login';
       this.homeService.showHideLoader(false);
     });
     }
