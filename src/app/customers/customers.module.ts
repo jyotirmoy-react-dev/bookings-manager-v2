@@ -6,9 +6,10 @@ import { EditcustomersComponent } from './editcustomers/editcustomers.component'
 import { AddcustomerService } from './addcustomer/addcustomer.service';
 import { ManagecustomersService } from './managecustomers/managecustomers.service';
 import { EditcustomersService } from './editcustomers/editcustomers.service';
-import { MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, MatStepperModule } from '@angular/material';
+import { MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule, MatStepperModule, MatTableModule, MatPaginatorModule, MatSelectModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
+import { BackButtonComponentComponent } from '../back-button-component/back-button-component.component';
 
 @NgModule({
   imports: [
@@ -21,10 +22,13 @@ import { AppRoutingModule } from '../app-routing.module';
     MatInputModule,
     FormsModule,
     MatButtonModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSelectModule
   ],
-  declarations: [AddcustomerComponent, ManagecustomersComponent, EditcustomersComponent],
-  exports: [AddcustomerComponent, ManagecustomersComponent, EditcustomersComponent],
+  declarations: [AddcustomerComponent, ManagecustomersComponent, EditcustomersComponent, BackButtonComponentComponent],
+  exports: [AddcustomerComponent, ManagecustomersComponent, EditcustomersComponent, BackButtonComponentComponent],
   providers: [AddcustomerService, ManagecustomersService, EditcustomersService]
 })
 export class CustomersModule { }

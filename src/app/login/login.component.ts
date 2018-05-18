@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
         this.homeService.setUserLogFlag(true);
         this.router.navigate(['home']);
       },
-    ({error})=>{
+    ({error}) => {
       this.snackBar.open(error.error.message, '', {
         duration: 2000,
       });

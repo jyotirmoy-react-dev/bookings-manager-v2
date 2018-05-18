@@ -30,7 +30,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AmComponent } from './existingenquiries/am.component';
 import { ActionComponentComponent } from './existingenquiries/action-component/action-component.component';
-import { BackButtonComponentComponent } from './back-button-component/back-button-component.component';
+
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule, MatSelectModule, MatCheckboxModule, 
   MatTooltipModule, MatChipsModule, MatSnackBarModule, MatRadioModule, MatInputModule,
@@ -65,7 +65,7 @@ import { CustomersModule } from './customers/customers.module';
     ExistingenquiriesComponent,
     AmComponent,
     ActionComponentComponent,
-    BackButtonComponentComponent,
+
     ManagehotelComponent,
     AddhotelComponent,
     TransportationComponent,

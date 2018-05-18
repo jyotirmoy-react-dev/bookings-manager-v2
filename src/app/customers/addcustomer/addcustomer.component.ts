@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HomepageserviceService} from '../../homepageservice.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { ExistingenquiryserviceService } from '../../existingenquiries/existingenquiryservice.service';
 
 @Component({selector: 'app-addcustomer', templateUrl: './addcustomer.component.html', styleUrls: ['./addcustomer.component.css']})
 export class AddcustomerComponent implements OnInit {
@@ -8,7 +9,8 @@ export class AddcustomerComponent implements OnInit {
   hotelFormGroup : FormGroup;
   token = '';
   CHotel = '';
-  constructor(private homeS : HomepageserviceService) {}
+  hotels:any = [];
+  constructor(private homeS : HomepageserviceService, private hotelService: ExistingenquiryserviceService) {}
 
   ngOnInit() {
     this
@@ -16,10 +18,9 @@ export class AddcustomerComponent implements OnInit {
       .token
       .subscribe(token => {
         this.token = token;
+        this.getHotels();
         this.setupCustomerForm();
-        this.hotelFormGroup = new FormGroup({
-          HCode: new FormControl('', {validators: Validators.required})
-        });
+        this.setUpHotelForm();
       })
   }
 
@@ -39,5 +40,19 @@ export class AddcustomerComponent implements OnInit {
     });
   }
 
+  setUpHotelForm(){
+    this.hotelFormGroup = new FormGroup({
+      Hotelcode: new FormControl('', { validators: Validators.required })
+    });
+  }
+
   saveCustomer({valid, value}) {}
+
+  getHotels(){
+    this.homeS.showHideLoader(true);
+    this.hotelService.getHotels(this.token).subscribe(res => {
+        this.hotels = res;
+        this.homeS.showHideLoader(false);
+    });
+  }
 }

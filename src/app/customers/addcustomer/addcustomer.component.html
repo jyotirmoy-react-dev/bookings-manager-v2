@@ -1,4 +1,6 @@
 <mat-card>
+  <app-back-button-component></app-back-button-component>
+
   <mat-card-title>
     Add New Customer
   </mat-card-title>
@@ -7,9 +9,12 @@
       <mat-horizontal-stepper [linear]="true" #stepper>
         <mat-step [stepControl]="hotelFormGroup">
           <form [formGroup]="hotelFormGroup">
-            <ng-template matStepLabel>Select Hotel</ng-template>
             <mat-form-field>
-              <input matInput placeholder="Select Hotel" formControlName="HCode" required>
+              <mat-select placeholder="Select Hotel" formControlName="Hotelcode">
+                <mat-option *ngFor="let hotel of hotels" [value]="hotel.HCode">
+                  {{ hotel.HName }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
             <div>
               <button mat-button matStepperNext>Next</button>
