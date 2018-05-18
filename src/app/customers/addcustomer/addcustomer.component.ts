@@ -42,17 +42,25 @@ export class AddcustomerComponent implements OnInit {
 
   setUpHotelForm(){
     this.hotelFormGroup = new FormGroup({
-      Hotelcode: new FormControl('', { validators: Validators.required })
+      CHotel: new FormControl('', { validators: Validators.required })
     });
   }
 
-  saveCustomer({valid, value}) {}
+  saveCustomer() {
+    console.log(this.hotelFormGroup.value);
+    console.log(this.customerForm.value);
+  }
 
   getHotels(){
     this.homeS.showHideLoader(true);
     this.hotelService.getHotels(this.token).subscribe(res => {
         this.hotels = res;
         this.homeS.showHideLoader(false);
-    });
+    },
+      ({ error }) => {
+        if (error.error.code == 'AUTHORIZATION_REQUIRED') {
+          this.homeS.unauthUserLogOut();
+        }
+      });
   }
 }

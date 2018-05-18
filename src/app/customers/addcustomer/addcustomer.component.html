@@ -7,11 +7,12 @@
   <mat-card-content>
     <mat-card>
       <mat-horizontal-stepper [linear]="true" #stepper>
-        <mat-step [stepControl]="hotelFormGroup">
+        <mat-step [stepControl]="hotelFormGroup" >
           <form [formGroup]="hotelFormGroup">
+            <ng-template matStepLabel>Select Hotel</ng-template>
             <mat-form-field>
-              <mat-select placeholder="Select Hotel" formControlName="Hotelcode">
-                <mat-option *ngFor="let hotel of hotels" [value]="hotel.HCode">
+              <mat-select placeholder="Select Hotel" formControlName="CHotel">
+                <mat-option *ngFor="let hotel of hotels" [value]="hotel.id">
                   {{ hotel.HName }}
                 </mat-option>
               </mat-select>
@@ -22,7 +23,7 @@
           </form>
         </mat-step>
         <mat-step [stepControl]="customerForm" [optional]="false">
-          <form class="example-form" [formGroup]="customerForm" (ngSubmit)="saveCustomer(customerForm)">
+          <form class="example-form" [formGroup]="customerForm" >
             <ng-template matStepLabel>Fill out customer information</ng-template>
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Company (disabled)" disabled value="Google">
@@ -100,7 +101,9 @@
         </mat-step>
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>
-          You are now done.
+          <button mat-raised-button color="accent" (click)="saveCustomer()">
+            Click to Save Details
+          </button>
           <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button (click)="stepper.reset()">Reset</button>
