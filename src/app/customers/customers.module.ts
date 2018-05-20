@@ -10,7 +10,8 @@ import { MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatBu
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { BackButtonComponentComponent } from '../back-button-component/back-button-component.component';
-
+import {MatListModule} from '@angular/material/list';
+import { CustomerinfoComponent } from './managecustomers/customerinfo/customerinfo.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -25,9 +26,10 @@ import { BackButtonComponentComponent } from '../back-button-component/back-butt
     MatStepperModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule
   ],
-  declarations: [AddcustomerComponent, ManagecustomersComponent, EditcustomersComponent, BackButtonComponentComponent],
+  declarations: [AddcustomerComponent, ManagecustomersComponent, EditcustomersComponent, BackButtonComponentComponent, CustomerinfoComponent],
   exports: [AddcustomerComponent, ManagecustomersComponent, EditcustomersComponent, BackButtonComponentComponent],
   providers: [AddcustomerService, ManagecustomersService, EditcustomersService]
 })

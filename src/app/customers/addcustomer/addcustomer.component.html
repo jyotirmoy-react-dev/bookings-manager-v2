@@ -11,24 +11,22 @@
           <form [formGroup]="hotelFormGroup">
             <ng-template matStepLabel>Select Hotel</ng-template>
             <mat-form-field>
-              <mat-select placeholder="Select Hotel" formControlName="CHotel">
-                <mat-option *ngFor="let hotel of hotels" [value]="hotel.id">
+              <mat-select placeholder="Select Hotel" formControlName="CHotel" [(value)]="customerInfo.CHotel" >
+                <mat-option *ngFor="let hotel of hotels" [value]="hotel" >
                   {{ hotel.HName }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
+             {{hotelFormGroup.value.CHotel | json}}
             <div>
-              <button mat-button matStepperNext>Next</button>
+              <button mat-button color="primary" matStepperNext>Next</button>
             </div>
           </form>
         </mat-step>
         <mat-step [stepControl]="customerForm" [optional]="false">
           <form class="example-form" [formGroup]="customerForm" >
             <ng-template matStepLabel>Fill out customer information</ng-template>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Company (disabled)" disabled value="Google">
-            </mat-form-field>
-      
+                 
             <table class="example-full-width" cellspacing="0">
               <tr>
                 <td>
@@ -87,26 +85,49 @@
                 </td>
                 <td>
                   <mat-form-field class="example-full-width">
-                    <input matInput #postalCode maxlength="5" placeholder="Postal Code" formControlName="CPin">
-                    <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                    <input matInput #postalCode maxlength="6" placeholder="Postal Code" formControlName="CPin">
+                    <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
                   </mat-form-field>
                 </td>
               </tr>
             </table>
             <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
+              <button mat-button color="primary" matStepperPrevious>Back</button>
+              <button mat-button color="primary" matStepperNext>Next</button>
             </div>
           </form>
         </mat-step>
+        <mat-step [stepControl]="additionalInfoForm" [optional]="true">
+            <form class="example-form" [formGroup]="additionalInfoForm">
+              <ng-template matStepLabel>Notes</ng-template>
+                <mat-form-field>
+                  <textarea matInput placeholder="Additonal Information" formControlName="addedNotes"></textarea>
+                </mat-form-field>
+                <div>
+                  <button mat-button color="primary" matStepperPrevious>Back</button>
+                  <button mat-button color="primary" matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>
-          <button mat-raised-button color="accent" (click)="saveCustomer()">
-            Click to Save Details
-          </button>
+          Please Review the following information.<br/>
+            <mat-list role="list">
+              <mat-list-item role="listitem">Hotel- {{hotelFormGroup.value.CHotel}}</mat-list-item>
+              <mat-list-item role="listitem">Name- {{customerForm.value.CFirstname}} {{customerForm.value.CLastname}}</mat-list-item>
+              <mat-list-item role="listitem">Address- {{customerForm.value.CAddress}} {{customerForm.value.CAddress2}}</mat-list-item>
+              <mat-list-item role="listitem">Phone- {{customerForm.value.CPhone}}</mat-list-item>
+              <mat-list-item role="listitem">Email- {{customerForm.value.CEmail}}</mat-list-item>
+              <mat-list-item role="listitem">State- {{customerForm.value.CState}}</mat-list-item>
+              <mat-list-item role="listitem">City- {{customerForm.value.CCity}}</mat-list-item>
+              <mat-list-item role="listitem">Pincode- {{customerForm.value.CPin}}</mat-list-item>
+            </mat-list>
+            <br/>
+          
           <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-button color="primary" matStepperPrevious>Back</button>
+            <button mat-button color="primary" (click)="stepper.reset()">Reset</button>
+            <button mat-button color="primary" (click)="saveCustomer()" >Done</button>
           </div>
         </mat-step>
       </mat-horizontal-stepper>

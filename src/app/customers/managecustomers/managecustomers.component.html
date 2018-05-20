@@ -14,33 +14,29 @@
 
       <mat-table #table [dataSource]="dataSource" matSort>
         <!-- Name Column -->
-        <ng-container matColumnDef="First Name">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+        <ng-container matColumnDef="Name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>  Name </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            {{element.CFirstname}}
+            <app-customerinfo 
+            [firstname]="element.CFirstname" 
+            [lastname]="element.CLastname"
+             [id]="element.id"></app-customerinfo>            
           </mat-cell>
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="Last Name">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
-          <mat-cell *matCellDef="let element">
-            {{element.CLastname}}
-          </mat-cell>
-        </ng-container>
-
         <!-- Symbol Column -->
-        <ng-container matColumnDef="Customer Address">
-          <mat-header-cell *matHeaderCellDef mat-sort-header> Customer Address </mat-header-cell>
+        <ng-container matColumnDef="Hotel">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Hotel </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            {{element.CAddress}}{{element.CAddress2}}
+            {{element.CHotel}}
           </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="Customer Email">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Customer Email </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            {{element.HPhone}}
+            {{element.CEmail}}
           </mat-cell>
         </ng-container>
 

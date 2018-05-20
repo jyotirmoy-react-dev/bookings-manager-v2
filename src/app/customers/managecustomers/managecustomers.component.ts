@@ -9,9 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./managecustomers.component.css']
 })
 export class ManagecustomersComponent implements OnInit {
-  displayedColumns = ['First Name',
-                      'Last Name',
-                      'Customer Address',
+  displayedColumns = ['Name',                     
+                      'Hotel',
                       'Customer Email',
                       'Customer Phone',
                       'Guests'];
