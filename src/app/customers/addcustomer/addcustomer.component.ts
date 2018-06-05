@@ -14,6 +14,7 @@ additionalInfoForm: FormGroup;
   CHotel = '';
   hotels:any = [];
   HCode:any = '';
+  SaveType:any = 'save';
   customerInfo: any = {
     'CFirstname': '',
     'CLastname': '',
@@ -126,13 +127,17 @@ this.getCustomerInfo();
     this.homeS.showHideLoader(true);
     this.router.paramMap.subscribe(res => {
       const id = res.get('id');
-      this.addcustomerS.getCustomerInfo(id,this.token).subscribe((res) => {
-    this.customerInfo = res;
-    this.setupCustomerForm();
-    this.setUpHotelForm();
-    this.addedNotesForm();
-    this.homeS.showHideLoader(false);
-      });
+      if (id) {
+        this.SaveType = 'update';
+        this.addcustomerS.getCustomerInfo(id, this.token).subscribe((res) => {
+          this.customerInfo = res;
+          this.setupCustomerForm();
+          this.setUpHotelForm();
+          this.addedNotesForm();
+          this.homeS.showHideLoader(false);
+        });
+      }
+      
     });
   }
   
